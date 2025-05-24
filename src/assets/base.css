@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+li {
+  list-style: none;
+}
+:root {
+  --dorado: rgb(202, 134, 7);
+  --marron: rgb(14, 9, 7);
+  --wheat: wheat;
+  --purpura: rgba(68, 48, 88, 0.87);
+  --bgCoffe: rgba(150, 80, 22, 0.4);
+  --bgLatte: rgb(184, 140, 105);
+}
+/*Reset*/
+body {
+  background-image: url(../assets/img/background-nocturne.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+  /*Hulmenaria*/
+  font-size: 2rem;
+  font-family: 'UnifrakturMaguntia';
+  color: var(--dorado);
+}
+h2 {
+  /*nav*/
+  margin: unset;
+}
+h3 {
+  /*Section*/
+  font-size: 1.7rem;
+  text-align: center;
+  font-family: 'MedievalSharp';
+  width: 20rem;
+}
+h4 {
+  /*Article*/
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: 'MedievalSharp';
+  width: 20rem;
+}
+h5 {
+  /*Nombres Propios*/
+  font-size: 1.7rem;
+  text-align: center;
+  font-family: 'MedievalSharp';
+  margin: 0 auto;
+}
+h6 {
+  /**/
+  background: unset;
+}

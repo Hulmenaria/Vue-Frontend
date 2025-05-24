@@ -1,0 +1,229 @@
+form {
+  background-image: url(../assets/img/parchment-old.png);
+  background-size: 100% 105%;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+  border: none;
+}
+
+article {
+  background-image: url(../assets/img/parchment-old.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 20rem;
+  height: 40rem;
+  text-align: center;
+  position: fixed;
+  z-index: 5;
+  top: 1rem;
+  left: -17rem;
+}
+section h2 {
+  font-family: 'UnifrakturMaguntia';
+  font-size: 4rem;
+  padding: 6rem 0 0rem 0;
+  color: var(--dorado);
+  text-shadow:
+    1px 1px 0px black,
+    -1px 1px 0px black,
+    1px -1px 0px black,
+    -1px -1px 0px black;
+}
+section a {
+  font-size: 3rem;
+  border: none;
+  background: transparent;
+  margin: 2rem;
+}
+
+label {
+  height: 3rem;
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+input,
+select,
+textarea {
+  background: none;
+  border: none;
+  border: 5px double black;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 0.5rem 0.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+textarea {
+  height: 3rem;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield !important;
+  appearance: none;
+  /* min-width: 3rem; */
+}
+
+.row-1 {
+  width: 100%;
+}
+.row-1 input,
+.row-1 textarea {
+  width: 100%;
+}
+.row-2 {
+  display: flex;
+  justify-content: left;
+}
+.row-2 input[type='text'] {
+  width: 12rem;
+}
+.row-3 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.row-3 label {
+  width: 35%;
+}
+.row-4 {
+  display: flex;
+  align-items: last baseline;
+  text-align: center;
+}
+.row-4 label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 6rem;
+  font-size: 1rem;
+}
+.row-4 input {
+  height: 3rem;
+}
+.row-4 p {
+  font-size: 1.5rem;
+}
+.row-cuadrado {
+  text-align: center;
+}
+.row-cuadrado label {
+  display: inline;
+}
+.row-cuadrado select {
+  width: 45%;
+}
+.row-bag {
+  justify-content: center;
+  display: flex;
+  position: relative;
+  padding: 0.3rem;
+}
+.row-bag input[type='text'] {
+  width: 11.5rem;
+}
+.row-bag input[type='number'] {
+  width: 3rem;
+}
+
+/*Info flotante de cada objeto*/
+.row-bag:hover .info {
+  opacity: 1;
+  z-index: 5;
+  transition: 1.5s 0.5s;
+}
+.info {
+  background-color: rgb(192, 192, 192);
+  width: 22rem;
+  margin: 0.2rem auto;
+  padding: 0.3rem;
+  border: 3px ridge rgb(192, 192, 192);
+  border-radius: 1rem;
+  display: flex;
+  opacity: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-shadow: inset 1px 1px 5px black;
+  box-sizing: border-box;
+  position: absolute;
+  top: 3rem;
+  z-index: -1;
+  transition: 0.2s ease-in;
+}
+.info p {
+  margin: 0.1rem 0.2rem;
+}
+.info .label-x {
+  width: 50%;
+}
+.info .label-l {
+  width: 35%;
+}
+.info .label-s {
+  width: 12%;
+}
+.label-s,
+.label-l,
+.label-x {
+  box-shadow: inset 1px 1px 5px black;
+  border-radius: 0.5rem;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+dialog {
+  width: 30rem;
+  height: 21rem;
+  margin: auto;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  background-image: url(../assets/img/parchment-old.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+}
+dialog div {
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+dialog input,
+dialog label {
+  height: 3rem;
+  margin: 0.5rem 0;
+}
+dialog input {
+  width: 100%;
+  font-size: 1rem;
+  margin: 0.15rem;
+}
+dialog input[type='number'] {
+  width: 100%;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+dialog .box-name {
+  width: 100%;
+}
+dialog .box-text {
+  width: 65%;
+}
+dialog .box-number {
+  width: 15%;
+}
+dialog .box-weight {
+  width: 35%;
+}
