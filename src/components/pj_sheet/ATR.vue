@@ -8,6 +8,7 @@ form {
   top: 4rem;
   width: 100vw;
   height: 93%;
+  z-index: 15;
 }
 section {
   display: flex;

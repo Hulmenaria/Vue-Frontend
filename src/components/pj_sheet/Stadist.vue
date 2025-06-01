@@ -10,6 +10,7 @@ form {
   height: 89%;
   flex-wrap: nowrap;
   overflow: scroll;
+  z-index: 15;
 }
 section {
   padding: 1rem 1rem 0 0.3rem;

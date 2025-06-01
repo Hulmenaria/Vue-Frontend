@@ -101,13 +101,41 @@ select {
 }
 
 .dots {
+  width: 0;
   height: 0;
   position: relative;
   top: 0.5rem;
   left: 1rem;
+  z-index: 10;
 }
 .dots img {
   height: 1.5rem;
+}
+.store {
+  background-color: var(--marron);
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.store button {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid wheat;
+  color: wheat;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 0 0 5px black;
+  transition: 0.3s ease;
+}
+
+.store button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 </style>
 
@@ -146,7 +174,7 @@ select {
       <p>{{ energy }}</p>
     </div>
     <div class="dots">
-      <img src="../assets/icon/mark/mark-blood.png" alt="mark" />
+      <img src="" alt="mark" />
     </div>
     <Equip />
     <Inv />
@@ -156,6 +184,10 @@ select {
     <transition name="atrSlide">
       <ATR v-if="isAtrOpen" />
     </transition>
+    <div class="store">
+      <button type="button" @click="saveSheet">Guardar</button>
+      <button type="button" @click="loadSheet">Cargar</button>
+    </div>
   </form>
 </template>
 
@@ -192,5 +224,15 @@ const openAtr = () => {
 const handleClose = () => {
   isStadistOpen.value = false
   isAtrOpen.value = false
+}
+
+const saveSheet = async () => {
+  await store.saveSheet()
+  alert('Sheet stored')
+}
+
+const loadSheet = async () => {
+  await store.loadSheet()
+  alert('Sheet loaded')
 }
 </script>

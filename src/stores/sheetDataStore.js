@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
-import { watch } from 'vue'
-import { loadSheetData, saveSheetData } from '@/utils/indexedDB'
+import axios from 'axios'
+
+const API_URL = 'http://localhost:5000/api/sheet'
 
 export const dowerMapping = {
   con: ['agil', 'end', 'strg', 'rap', 'ref', 'spd'],
@@ -88,32 +89,20 @@ export const useSheetDataStore = defineStore('sheetData', {
   }),
 
   actions: {
-    // Esta funcion actualiza el valor de cualquier variable
-    // store.updateField('atr', 'level', 5) - Así se llama
-    // updateField(section, field, value) {
-    //   if (this.sheetData[section]) {
-    //     this.sheetData[section][field] = value
-    //   }
-    // },
-
-    async loadSheetIndexedDB() {
+    async loadSheet(userId) {
       try {
-        const data = await loadSheetData(1)
-        if (data) {
-          this.sheetData = data
-          console.log('Sheet data loaded successfully')
-        }
+        const res = await axios.get(`${API_URL}/load`)
+        this.sheetData = res.data
       } catch (error) {
-        console.error('Error loading sheet data:', error)
+        console.error('Failed loading data form server:', error)
       }
     },
 
-    async saveSheetIndexedDB() {
+    async saveSheet() {
       try {
-        await saveSheetData(1, this.sheetData)
-        console.log('Sheet data saved successfully')
+        await axios.post(`${API_URL}/save`, { sheetData: this.sheetData })
       } catch (error) {
-        console.error('Error saving sheet data:', error)
+        console.error('Failed saving sheet in server')
       }
     },
   },
