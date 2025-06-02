@@ -144,8 +144,8 @@ select {
     <div class="overlay" v-if="isStadistOpen || isAtrOpen" @click="handleClose"></div>
     <section>
       <div @click="openStad">
-        <p class="name">{{ namePJ }}</p>
-        <p>{{ race }}</p>
+        <p class="name">{{ store.sheetData.std.name }}</p>
+        <p>{{ store.sheetData.std.race }}</p>
         <p>Lvl {{ store.sheetData.atr.level }}</p>
       </div>
       <div class="dice" @click="openAtr">
@@ -165,7 +165,7 @@ select {
       </div>
     </section>
     <div class="energy">
-      <p class="res">Res: {{ res }}</p>
+      <p class="res">Res: {{ store.sheetData.std.acRes }}</p>
       <select v-model="selectedEnergy">
         <option value="mistyc">Mistyc</option>
         <option value="inner">Inner</option>
@@ -179,7 +179,7 @@ select {
     <Equip />
     <Inv />
     <transition name="stadistSlide">
-      <Stadist v-if="isStadistOpen" v-model:name="namePJ" v-model:race="race" />
+      <Stadist v-if="isStadistOpen" />
     </transition>
     <transition name="atrSlide">
       <ATR v-if="isAtrOpen" />
@@ -201,15 +201,6 @@ import ATR from '../components/pj_sheet/ATR.vue'
 
 const store = useSheetDataStore()
 
-const namePJ = ref('Select a Name')
-const race = ref('Select a Race')
-const armor = ref(0)
-const res = ref(0)
-const energy = ref(0)
-const selectedEnergy = ref('mistyc')
-const dmg = ref('')
-const ini = ref('')
-
 const isStadistOpen = ref(false)
 const isAtrOpen = ref(false)
 
@@ -227,12 +218,26 @@ const handleClose = () => {
 }
 
 const saveSheet = async () => {
-  await store.saveSheet()
-  alert('Sheet stored')
+  if (!store.sheetData.std.name) {
+    alert('Select a Name')
+    return
+  }
+  try {
+    await store.saveSheet(store.sheetData.std.name)
+    alert(`"${store.sheetData.std.name}" sheet stored`)
+  } catch (error) {
+    alert('There was a problem saving data')
+    console.error('Error saving sheet', error)
+  }
 }
 
 const loadSheet = async () => {
-  await store.loadSheet()
-  alert('Sheet loaded')
+  if (!store.sheetData.std.name) {
+    alert('Please, select a Name')
+    return
+  }
+
+  await store.loadSheet(store.sheetData.std.name)
+  alert(`"${store.sheetData.std.name}" sheet loaded`)
 }
 </script>

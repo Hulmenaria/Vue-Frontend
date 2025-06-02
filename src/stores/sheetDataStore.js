@@ -78,6 +78,54 @@ export const useSheetDataStore = defineStore('sheetData', {
         karmaGood: 0,
         karmaEvil: 0,
       },
+      std: {
+        name: '',
+        race: 'Select a race',
+        mutation: '',
+        temper: 'Temper',
+        attitude: 'Attitude',
+        faction: 'Faction',
+        function: 'Function',
+        age: 1,
+        title: '',
+        incarnation: 'Incarnation',
+        constelation: 'Constelation',
+        class1: '',
+        class1Talent: 0,
+        class2: '',
+        class2Talent: 0,
+        class3: '',
+        class3Talent: 0,
+        synergy: '',
+        // Power section
+        mistyc: 'Mistyc',
+        acMistyc: 5,
+        mxMistyc: 5,
+        insiders: 'Insiders',
+        acInsiders: 5,
+        mxInsiders: 5,
+        naturals: 'Naturals',
+        acNaturals: 5,
+        mxNaturals: 5,
+        // Stats
+        acHP: 5,
+        mxHP: 5,
+        acCP: 10,
+        mxCP: 10,
+        na: 1,
+        arm: 0,
+        acP: 0,
+        mxP: 50,
+        acRes: 5,
+        mxRes: 5,
+        acHam: 100,
+        mxHam: 100,
+        // Corruption and Madness
+        percentCor: 0,
+        minusCor: 10,
+        percentLoc: 0,
+        minusLoc: 5,
+      },
       dtPoints: {
         con: 0,
         int: 0,
@@ -89,20 +137,23 @@ export const useSheetDataStore = defineStore('sheetData', {
   }),
 
   actions: {
-    async loadSheet(userId) {
+    async loadSheet(name) {
       try {
-        const res = await axios.get(`${API_URL}/load`)
+        const res = await axios.get(`${API_URL}/load?name=${encodeURIComponent(name)}`)
         this.sheetData = res.data
       } catch (error) {
-        console.error('Failed loading data form server:', error)
+        console.error('Failed loading data from server:', error)
       }
     },
 
-    async saveSheet() {
+    async saveSheet(name) {
       try {
-        await axios.post(`${API_URL}/save`, { sheetData: this.sheetData })
+        await axios.post(API_URL + '/save', {
+          sheetData: this.sheetData,
+          name: name,
+        })
       } catch (error) {
-        console.error('Failed saving sheet in server')
+        console.error('Failed saving sheet in server:', error)
       }
     },
   },
