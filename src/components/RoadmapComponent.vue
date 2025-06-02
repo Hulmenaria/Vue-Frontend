@@ -66,13 +66,24 @@
     <div class="road" id="road">
       <div class="sts">
         <p>Web Status</p>
-        <label for="bar1"><input type="range" class="bar" value="0" id="bar1" disabled /></label>
+        <label for="bar1">
+          <input
+            type="range"
+            class="bar"
+            :value="webStatus"
+            id="bar1"
+            min="0"
+            max="100"
+            step="1"
+            disabled
+          />
+        </label>
         <ul class="list">
           <li>
             <label for="web1"><input type="checkbox" id="web1" disabled checked />Design</label>
           </li>
           <li>
-            <label for="web2"><input type="checkbox" id="web2" disabled checked />Content</label>
+            <label for="web2"><input type="checkbox" id="web2" disabled />Content</label>
           </li>
           <li>
             <label for="web3"><input type="checkbox" id="web3" disabled />Themes</label>
@@ -96,10 +107,12 @@
       </div>
       <div class="sts">
         <p>App Status</p>
-        <label for="bar2"><input type="range" class="bar" value="0" id="bar2" disabled /></label>
+        <label for="bar2">
+          <input type="range" class="bar" :value="appStatus" id="bar2" disabled />
+        </label>
         <ul class="list">
           <li>
-            <label for="app1"><input type="checkbox" id="app1" disabled />Design</label>
+            <label for="app1"><input type="checkbox" id="app1" disabled checked />Design</label>
           </li>
           <li>
             <label for="app2"><input type="checkbox" id="app2" disabled />Content</label>
@@ -120,13 +133,15 @@
             <label for="app7"><input type="checkbox" id="app7" disabled />IOS</label>
           </li>
           <li>
-            <label for="app8"><input type="checkbox" id="app8" disabled />Deskopt</label>
+            <label for="app8"><input type="checkbox" id="app8" disabled />Desktop</label>
           </li>
         </ul>
       </div>
       <div class="sts">
         <p>Dice Roller</p>
-        <label for="bar3"><input type="range" class="bar" value="0" id="bar3" disabled /></label>
+        <label for="bar3">
+          <input type="range" class="bar" :value="diceStatus" id="bar3" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="dice1"><input type="checkbox" id="dice1" disabled />Mechanism</label>
@@ -153,16 +168,18 @@
       </div>
       <div class="sts">
         <p>Pj Sheet</p>
-        <label for="bar4"><input type="range" class="bar" value="0" id="bar4" disabled /></label>
+        <label for="bar4">
+          <input type="range" class="bar" :value="pjStatus" id="bar4" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="pj1"><input type="checkbox" id="pj1" disabled checked />Design</label>
           </li>
           <li>
-            <label for="pj2"><input type="checkbox" id="pj2" disabled />Interactive</label>
+            <label for="pj2"><input type="checkbox" id="pj2" disabled checked />Interactive</label>
           </li>
           <li>
-            <label for="pj3"><input type="checkbox" id="pj3" disabled />Editable</label>
+            <label for="pj3"><input type="checkbox" id="pj3" disabled checked />Editable</label>
           </li>
           <li>
             <label for="pj4"><input type="checkbox" id="pj4" disabled />Tool linked</label>
@@ -177,7 +194,9 @@
       </div>
       <div class="sts">
         <p>Community</p>
-        <label for="bar5"><input type="range" class="bar" value="0" id="bar5" disabled /></label>
+        <label for="bar5">
+          <input type="range" class="bar" :value="communityStatus" id="bar5" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="com1"><input type="checkbox" id="com1" disabled />Developers</label>
@@ -201,7 +220,9 @@
       </div>
       <div class="sts">
         <p>Translation</p>
-        <label for="bar6"><input type="range" class="bar" value="0" id="bar6" disabled /></label>
+        <label for="bar6">
+          <input type="range" class="bar" :value="translationStatus" id="bar6" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="trans1"
@@ -227,7 +248,9 @@
       </div>
       <div class="sts">
         <p>Loot Table</p>
-        <label for="bar7"><input type="range" class="bar" value="0" id="bar7" disabled /></label>
+        <label for="bar7">
+          <input type="range" class="bar" :value="lootStatus" id="bar7" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="loot1"><input type="checkbox" id="loot1" disabled />Mechanism</label>
@@ -248,7 +271,9 @@
       </div>
       <div class="sts">
         <p>Encyclopedia</p>
-        <label for="bar8"><input type="range" class="bar" value="0" id="bar8" disabled /></label>
+        <label for="bar8">
+          <input type="range" class="bar" :value="encyclopediaStatus" id="bar8" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="enc1"><input type="checkbox" id="enc1" disabled />Templates</label>
@@ -269,7 +294,9 @@
       </div>
       <div class="sts">
         <p>Map Status</p>
-        <label for="bar9"><input type="range" class="bar" value="0" id="bar9" disabled /></label>
+        <label for="bar9">
+          <input type="range" class="bar" :value="mapStatus" id="bar9" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="map1"><input type="checkbox" id="map1" disabled />Map plans</label>
@@ -290,7 +317,9 @@
       </div>
       <div class="sts">
         <p>Fundation</p>
-        <label for="bar10"><input type="range" class="bar" value="0" id="bar10" disabled /></label>
+        <label for="bar10">
+          <input type="range" class="bar" :value="fundationStatus" id="bar10" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="fund1"
@@ -311,7 +340,9 @@
       </div>
       <div class="sts">
         <p>Game Table</p>
-        <label for="bar11"><input type="range" class="bar" value="0" id="bar11" disabled /></label>
+        <label for="bar11">
+          <input type="range" class="bar" :value="gameStatus" id="bar11" disabled />
+        </label>
         <ul class="list">
           <li>
             <label for="game1"><input type="checkbox" id="game1" disabled />aaaa</label>
@@ -338,7 +369,45 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+
+const webStatus = ref(0)
+const appStatus = ref(0)
+const diceStatus = ref(0)
+const pjStatus = ref(0)
+const communityStatus = ref(0)
+const translationStatus = ref(0)
+const lootStatus = ref(0)
+const encyclopediaStatus = ref(0)
+const mapStatus = ref(0)
+const fundationStatus = ref(0)
+const gameStatus = ref(0)
+
+// Función para calcular el porcentaje
+const progression = (checkedCount, totalItems) => {
+  return (checkedCount / totalItems) * 100
+}
+
+// Reemplazar la función countChecked actual con:
+const countChecked = (category) => {
+  const checkboxes = document.querySelectorAll(`input[id^="${category}"]`)
+  return Array.from(checkboxes).filter((checkbox) => checkbox.checked).length
+}
+
+onMounted(() => {
+  // Contar checkboxes marcados al cargar el componente
+  webStatus.value = progression(countChecked('web'), 8)
+  appStatus.value = progression(countChecked('app'), 8)
+  diceStatus.value = progression(countChecked('dice'), 7)
+  pjStatus.value = progression(countChecked('pj'), 6)
+  communityStatus.value = progression(countChecked('com'), 6)
+  translationStatus.value = progression(countChecked('trans'), 6)
+  lootStatus.value = progression(countChecked('loot'), 5)
+  encyclopediaStatus.value = progression(countChecked('enc'), 5)
+  mapStatus.value = progression(countChecked('map'), 5)
+  fundationStatus.value = progression(countChecked('fund'), 3)
+  gameStatus.value = progression(countChecked('game'), 6)
+})
 
 const props = defineProps({
   roadmapClick: {
@@ -348,11 +417,11 @@ const props = defineProps({
 })
 
 const isOpen = ref(false)
-
 const roadmapOpen = () => {
   isOpen.value = !isOpen.value
   props.roadmapClick()
 }
+
 const roadmapStyles = computed(() => ({
   height: isOpen.value ? '44rem' : '19rem',
   overflow: isOpen.value ? 'scroll' : 'hidden',
