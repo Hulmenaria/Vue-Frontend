@@ -144,8 +144,8 @@ select {
     <div class="overlay" v-if="isStadistOpen || isAtrOpen" @click="handleClose"></div>
     <section>
       <div @click="openStad">
-        <p class="name">{{ store.sheetData.std.name }}</p>
-        <p>{{ store.sheetData.std.race }}</p>
+        <p class="name">{{ store.sheetData.std.name || 'Select a Name' }}</p>
+        <p>{{ store.sheetData.std.race || 'Select a race' }}</p>
         <p>Lvl {{ store.sheetData.atr.level }}</p>
       </div>
       <div class="dice" @click="openAtr">

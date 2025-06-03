@@ -80,7 +80,7 @@ export const useSheetDataStore = defineStore('sheetData', {
       },
       std: {
         name: '',
-        race: 'Select a race',
+        race: '',
         mutation: '',
         temper: 'Temper',
         attitude: 'Attitude',

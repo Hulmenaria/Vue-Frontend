@@ -142,12 +142,36 @@ section .especial .luck select {
   background-color: aqua;
   overflow: hidden;
 }
-.ill button[class*='btn'] {
-  width: 1.5rem;
-  height: 2rem;
-}
-.wound {
+.ill .wound {
   width: 10rem;
+}
+.ill .btn-down,
+.ill .btn-up {
+  background: transparent;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+.ill .btn-down::before,
+.ill .btn-up::before {
+  content: '';
+  background-image: url(../../assets/selector/arrow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.ill .btn-up::before {
+  transform: rotate(-90deg);
+}
+.ill .btn-down::before {
+  transform: rotate(90deg);
 }
 .deity {
   width: 100%;

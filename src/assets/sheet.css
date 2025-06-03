@@ -1,3 +1,6 @@
+:root {
+  --txt-shadow: 1px 1px 0px black, -1px 1px 0px black, 1px -1px 0px black, -1px -1px 0px black;
+}
 form {
   background-image: url(../assets/img/parchment-old.png);
   background-size: 100% 105%;
@@ -28,11 +31,7 @@ section h2 {
   font-size: 4rem;
   padding: 6rem 0 0rem 0;
   color: var(--dorado);
-  text-shadow:
-    1px 1px 0px black,
-    -1px 1px 0px black,
-    1px -1px 0px black,
-    -1px -1px 0px black;
+  text-shadow: var(--txt-shadow);
 }
 section a {
   font-size: 3rem;

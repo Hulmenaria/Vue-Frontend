@@ -15,7 +15,6 @@
   justify-content: center;
 }
 .equip button {
-  background: transparent;
   background-color: var(--bgCoffe);
   border-radius: 1rem;
   border: 2px inset var(--bgLatte);
@@ -136,7 +135,7 @@ section .trinket img {
   background-position: center;
   opacity: 0.7;
 }
-.box-head button {
+/* .box-head button {
   background-image: url(../../assets/icon/equip/head.png);
 }
 .box-chest button {
@@ -147,7 +146,7 @@ section .trinket img {
 }
 .box-shoulder-right button {
   background-image: url(../../assets/icon/equip/shoulder-r.png);
-}
+} */
 @media screen and (min-width: 400px) {
   .equip {
     padding: 1.5rem 48rem;
