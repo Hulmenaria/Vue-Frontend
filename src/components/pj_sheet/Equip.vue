@@ -136,16 +136,16 @@ section .trinket img {
   opacity: 0.7;
 }
 /* .box-head button {
-  background-image: url(../../assets/icon/equip/head.png);
+  background-image: url(..//icon/equip/head.png);
 }
 .box-chest button {
-  background-image: url(../../assets/icon/equip/body.png);
+  background-image: url(..//icon/equip/body.png);
 }
 .box-shoulder-left button {
-  background-image: url(../../assets/icon/equip/shoulder-l.png);
+  background-image: url(..//icon/equip/shoulder-l.png);
 }
 .box-shoulder-right button {
-  background-image: url(../../assets/icon/equip/shoulder-r.png);
+  background-image: url(..//icon/equip/shoulder-r.png);
 } */
 @media screen and (min-width: 400px) {
   .equip {
@@ -159,7 +159,7 @@ section .trinket img {
     <div class="shadow">
       <section class="box-pircing-left">
         <button type="button" class="trinket" @click="showDialog('pircing-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="pircing-left">
           <p>Left earring</p>
@@ -175,7 +175,7 @@ section .trinket img {
       </section>
       <section class="box-pircing-right">
         <button type="button" class="trinket" @click="showDialog('pircing-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="pircing-right">
           <p>Right earring</p>
@@ -191,7 +191,7 @@ section .trinket img {
       </section>
       <section class="box-face">
         <button type="button" class="trinket" @click="showDialog('face')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="face">
           <p>Face</p>
@@ -207,7 +207,7 @@ section .trinket img {
       </section>
       <section class="box-collar">
         <button type="button" class="trinket" @click="showDialog('collar')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="collar">
           <p>Necklace</p>
@@ -223,7 +223,7 @@ section .trinket img {
       </section>
       <section class="box-tatoo">
         <button type="button" class="trinket" @click="showDialog('tatoo')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="tatoo">
           <p>Tatoo</p>
@@ -239,7 +239,7 @@ section .trinket img {
       </section>
       <section class="box-kenwa">
         <button type="button" class="trinket" @click="showDialog('kenwa')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="kenwa">
           <p>Kenwa</p>
@@ -255,7 +255,7 @@ section .trinket img {
       </section>
       <section class="box-bracelet-left">
         <button type="button" class="trinket" @click="showDialog('bracelet-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="bracelet-left">
           <p>Left bracelet</p>
@@ -271,7 +271,7 @@ section .trinket img {
       </section>
       <section class="box-bracelet-right">
         <button type="button" class="trinket" @click="showDialog('bracelet-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="bracelet-right">
           <p>Right bracelet</p>
@@ -287,7 +287,7 @@ section .trinket img {
       </section>
       <section class="box-ring-left">
         <button type="button" class="trinket" @click="showDialog('ring-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="ring-left">
           <p>Left ring</p>
@@ -303,7 +303,7 @@ section .trinket img {
       </section>
       <section class="box-ring-right">
         <button type="button" class="trinket" @click="showDialog('ring-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="ring-right">
           <p>Right ring</p>
@@ -319,7 +319,7 @@ section .trinket img {
       </section>
       <section class="box-head">
         <button type="button" @click="showDialog('head')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="head">
           <p>Head</p>
@@ -338,7 +338,7 @@ section .trinket img {
       </section>
       <section class="box-chest">
         <button type="button" @click="showDialog('chest')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="chest">
           <p>Chest</p>
@@ -357,7 +357,7 @@ section .trinket img {
       </section>
       <section class="box-waist">
         <button type="button" @click="showDialog('waist')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="waist">
           <p>Waist</p>
@@ -376,7 +376,7 @@ section .trinket img {
       </section>
       <section class="box-shoulder-left">
         <button type="button" @click="showDialog('shoulder-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="shoulder-left">
           <p>Left shoulder</p>
@@ -395,7 +395,7 @@ section .trinket img {
       </section>
       <section class="box-arm-left">
         <button type="button" @click="showDialog('arm-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="arm-left">
           <p>Left arm</p>
@@ -414,7 +414,7 @@ section .trinket img {
       </section>
       <section class="box-hand-left">
         <button type="button" @click="showDialog('hand-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="hand-left">
           <p>Left hand</p>
@@ -433,7 +433,7 @@ section .trinket img {
       </section>
       <section class="box-leg-left">
         <button type="button" @click="showDialog('leg-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="leg-left">
           <p>Left leg</p>
@@ -452,7 +452,7 @@ section .trinket img {
       </section>
       <section class="box-foot-left">
         <button type="button" @click="showDialog('foot-left')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="foot-left">
           <p>Left foot</p>
@@ -471,7 +471,7 @@ section .trinket img {
       </section>
       <section class="box-shoulder-right">
         <button type="button" @click="showDialog('shoulder-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="shoulder-right">
           <p>Right shoulder</p>
@@ -490,7 +490,7 @@ section .trinket img {
       </section>
       <section class="box-arm-right">
         <button type="button" @click="showDialog('arm-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="arm-right">
           <p>Right arm</p>
@@ -509,7 +509,7 @@ section .trinket img {
       </section>
       <section class="box-hand-right">
         <button type="button" @click="showDialog('hand-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="hand-right">
           <p>Right hand</p>
@@ -528,7 +528,7 @@ section .trinket img {
       </section>
       <section class="box-leg-right">
         <button type="button" @click="showDialog('leg-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="leg-right">
           <p>Right leg</p>
@@ -547,7 +547,7 @@ section .trinket img {
       </section>
       <section class="box-foot-right">
         <button type="button" @click="showDialog('foot-right')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="foot-right">
           <p>Right foot</p>
@@ -567,7 +567,7 @@ section .trinket img {
 
       <section class="box-weapon">
         <button type="button" class="long" @click="showDialog('weapon')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="weapon">
           <p>Weapon of choice</p>
@@ -586,7 +586,7 @@ section .trinket img {
       </section>
       <section class="box-shield">
         <button type="button" class="long" @click="showDialog('shield')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="shield">
           <p>Shield</p>
@@ -605,7 +605,7 @@ section .trinket img {
       </section>
       <section class="box-sheath">
         <button type="button" class="short" @click="showDialog('sheath')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="sheath">
           <p>Sheath</p>
@@ -624,7 +624,7 @@ section .trinket img {
       </section>
       <section class="box-magic">
         <button type="button" class="long" @click="showDialog('magic')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="magic">
           <p>Lorness</p>
@@ -643,7 +643,7 @@ section .trinket img {
       </section>
       <section class="box-range">
         <button type="button" class="long" @click="showDialog('range')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="range">
           <p>Range weapon</p>
@@ -662,7 +662,7 @@ section .trinket img {
       </section>
       <section class="box-quiver">
         <button type="button" class="short" @click="showDialog('quiver')">
-          <img src="../assets/adornos/box.png" alt="" />
+          <img src="" alt="" />
         </button>
         <dialog id="quiver">
           <p>Quiver</p>

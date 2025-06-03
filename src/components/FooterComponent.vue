@@ -39,7 +39,7 @@ footer > div > div {
       <h4>Hulmenaria Team</h4>
       <img src="" alt="Creator Photo" />
       <p>Alejandro Serrato - Varushet</p>
-      <img src="../assets/img/logo.png" alt="Logo" />
+      <img src="/img/logo.png" alt="Logo" />
     </div>
     <div class="pie">
       <div class="social">facebook y asín</div>

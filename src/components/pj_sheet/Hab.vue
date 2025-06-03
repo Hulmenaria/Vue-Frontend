@@ -1,4 +1,6 @@
-<style scoped></style>
+<style scoped>
+@import '../../assets/sheet.css';
+</style>
 
 <template>
   <section></section>

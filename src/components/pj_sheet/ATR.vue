@@ -43,7 +43,7 @@ section {
   line-height: 0rem;
   border-width: 20px;
   border-style: solid;
-  border-image: url(../../assets/decor/frame.png) 100 100 stretch;
+  border-image: url(/decor/frame.png) 100 100 stretch;
   cursor: pointer;
 }
 .points label {
@@ -81,8 +81,8 @@ section .row-3 {
   margin: 0 40%;
   border-width: 20px;
   border-style: solid;
-  border-image: url(../../assets/decor/frame.png) 100 100 stretch;
-  background-image: url(../../assets/img/parchment.png);
+  border-image: url(/decor/frame.png) 100 100 stretch;
+  background-image: url(/img/parchment.png);
   background-size: 400% 400%;
   background-repeat: no-repeat;
   background-position: center;
@@ -136,10 +136,10 @@ section .especial .luck select {
   margin: 0;
 }
 .ill img {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 2rem;
   margin: 0;
-  background-color: aqua;
+  border: none;
   overflow: hidden;
 }
 .ill .wound {
@@ -157,7 +157,7 @@ section .especial .luck select {
 .ill .btn-down::before,
 .ill .btn-up::before {
   content: '';
-  background-image: url(../../assets/selector/arrow.svg);
+  background-image: url(/selector/arrow.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -210,7 +210,7 @@ section .especial .luck select {
   width: 3rem;
   height: 3rem;
   background: transparent;
-  background-image: url(../../assets/selector/selector.svg);
+  background-image: url(/selector/selector.svg);
   background-size: cover;
   border: none;
   border-radius: 50%;
@@ -233,7 +233,7 @@ section .especial .luck select {
   width: 3rem;
   height: 3rem;
   background: transparent;
-  background-image: url(../../src/assets/selector/selector.svg);
+  background-image: url(/selector/selector.svg);
   background-size: cover;
   border: none;
   border-radius: 50%;
@@ -607,7 +607,7 @@ section .especial .luck select {
         </label>
       </div>
       <div class="ill" v-for="(wound, index) in store.sheetData.atr.wounds" :key="wound.id">
-        <img :src="woundDott" alt="Wound Icon" />
+        <img :src="foundImage(wound.id)" :alt="wound.name" />
         <label class="wound">
           <input type="text" v-model="wound.name" @blur="newWound(index)" />
         </label>
@@ -674,7 +674,7 @@ section .especial .luck select {
 </template>
 
 <script setup>
-import { watch, onMounted, ref } from 'vue'
+import { watch, onMounted, ref, computed } from 'vue'
 import { useSheetDataStore, dowerMapping } from '@/stores/sheetDataStore'
 
 const store = useSheetDataStore()
@@ -764,9 +764,6 @@ const watchAttributes = () => {
     )
   })
 }
-onMounted(() => {
-  watchAttributes()
-})
 
 // Agrega y borra las heridas
 const newWound = (index) => {
@@ -785,6 +782,7 @@ const newWound = (index) => {
   }
 }
 
+//sube y baja el valor de las heridas
 const upGrade = (wound) => {
   wound.stadium++
   if (wound.stadium > 3) {
@@ -803,6 +801,29 @@ const downGrade = (wound) => {
   }
 }
 
+const marks = ref([])
+
+// Computada para encontrar la imagen por ID
+const foundImage = (id) => {
+  return marks.value.find((image) => image.id == id)
+}
+
+// //fetch para las marks de wound
+// const fetchImages = async () => {
+//   try {
+//     const response = await fetch('/collections/mark.json')
+//     if (!response.ok) {
+//       throw new Error('JSON not found')
+//     }
+//     const data = await response.json()
+//     marks.value = data.marks
+//   } catch (err) {
+//     console.error('Error al cargar imágenes:', err)
+//     marks.value = []
+//   }
+// }
+
+//maneja la devoción
 const devUpdate = (event) => {
   const inputValue = Number(event.target.value) || 0
   store.sheetData.atr.devInsert = inputValue
@@ -814,4 +835,9 @@ const devUpdate = (event) => {
     store.sheetData.atr.devotion = store.sheetData.atr.devotion - 100
   }
 }
+
+onMounted(() => {
+  watchAttributes()
+  fetchImages()
+})
 </script>

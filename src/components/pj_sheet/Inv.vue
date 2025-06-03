@@ -5,14 +5,14 @@ form {
   background-size: 103% 109%;
 }
 section {
-  background-image: url(../../assets/img/parchment.png);
+  background-image: url(/img/parchment.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.8);
 }
 form .pouch {
-  background-image: url(../../assets/img/parchment-old.png);
+  background-image: url(/img/parchment-old.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -89,7 +89,7 @@ form section[class*='inv'] div:first-child {
       <div>
         <p @click="openBag('bag1')">{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
         <button type="button" @click="showDialog('bag1')">
-          <img src="/src/assets/icon/pouch.png" alt="Bag img" />
+          <img src="/icon/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag1">
@@ -158,7 +158,7 @@ form section[class*='inv'] div:first-child {
       <div>
         <p @click="openBag('bag2')">{{ bags.bag2.name.value }} {{ bags.bag2.type.value }}</p>
         <button type="button" @click="showDialog('bag2')">
-          <img src="/src/assets/icon/pouch.png" alt="Bag img" />
+          <img src="/icon/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag2">

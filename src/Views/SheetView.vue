@@ -54,7 +54,7 @@ select {
 }
 
 .dice img {
-  background-image: url('../assets/decor/frame.png');
+  background-image: url('/decor/frame.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -149,12 +149,12 @@ select {
         <p>Lvl {{ store.sheetData.atr.level }}</p>
       </div>
       <div class="dice" @click="openAtr">
-        <img src="../assets/dice/white-D10-2.svg" alt="Damage" class="dmg" />
+        <img src="/dice/white-D10-2.svg" alt="Damage" class="dmg" />
         <p>{{ dmgBon }} +3</p>
-        <img src="../assets/dice/white-D6-1.svg" alt="Initiative" class="ini" />
+        <img src="/dice/white-D6-1.svg" alt="Initiative" class="ini" />
         <p>{{ iniBon }} +1</p>
         <div class="arm">
-          <img src="../assets/icon/item/shield-metal.png" alt="Armor" />
+          <img src="/icon/item/shield-metal.png" alt="Armor" />
           <p>{{ armor }}</p>
         </div>
       </div>
