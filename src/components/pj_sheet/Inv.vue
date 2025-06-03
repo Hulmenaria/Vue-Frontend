@@ -89,7 +89,7 @@ form section[class*='inv'] div:first-child {
       <div>
         <p @click="openBag('bag1')">{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
         <button type="button" @click="showDialog('bag1')">
-          <img src="/icon/pouch.png" alt="Bag img" />
+          <img src="/icon/item/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag1">
@@ -158,7 +158,7 @@ form section[class*='inv'] div:first-child {
       <div>
         <p @click="openBag('bag2')">{{ bags.bag2.name.value }} {{ bags.bag2.type.value }}</p>
         <button type="button" @click="showDialog('bag2')">
-          <img src="/icon/pouch.png" alt="Bag img" />
+          <img src="/icon/item/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag2">
