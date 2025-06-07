@@ -1,44 +1,48 @@
 {
   "marks": [
     {
-      "id": "blood",
-      "image": "/src/assets/icon/mark/mark-blood.png"
+      "id": "bleed",
+      "image": "/icon/mark/mark-blood.png"
     },
     {
-      "id": "bone",
-      "image": "/src/assets/icon/mark/mark-bone.png"
+      "id": "wound",
+      "image": "/icon/mark/mark-bone.png"
     },
     {
       "id": "dread",
-      "image": "/src/assets/icon/mark/mark-dread.png"
+      "image": "/icon/mark/mark-dread.png"
     },
     {
       "id": "drunk",
-      "image": "/src/assets/icon/mark/mark-drunk.png"
+      "image": "/icon/mark/mark-drunk.png"
     },
     {
-      "id": "eye",
-      "image": "/src/assets/icon/mark/mark-eye.png"
+      "id": "blind",
+      "image": "/icon/mark/mark-eye.png"
     },
     {
-      "id": "fire",
-      "image": "/src/assets/icon/mark/mark-fire.png"
+      "id": "burnt",
+      "image": "/icon/mark/mark-fire.png"
     },
     {
       "id": "poison",
-      "image": "/src/assets/icon/mark/mark-poison.png"
+      "image": "/icon/mark/mark-poison.png"
     },
     {
-      "id": "stone",
-      "image": "/src/assets/icon/mark/mark-stone.png"
+      "id": "prytify",
+      "image": "/icon/mark/mark-stone.png"
     },
     {
       "id": "stun",
-      "image": "/src/assets/icon/mark/mark-stun.png"
+      "image": "/icon/mark/mark-stun.png"
     },
     {
-      "id": "toxin",
-      "image": "/src/assets/icon/mark/mark-toxin.png"
+      "id": "intoxicate",
+      "image": "/icon/mark/mark-toxin.png"
+    },
+    {
+      "id": "unknow",
+      "image": "/icon/mark/mark-exclam.png"
     }
   ]
 }

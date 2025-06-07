@@ -1,59 +1,66 @@
 <style scoped>
 #roadmap {
   height: 19rem;
-  background-color: var(--purpura);
-  width: 90%;
+  width: 95%;
   margin: 1rem auto;
   border-radius: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
   transition: 1s;
 }
-#roadmap h3 {
+h3 {
+  color: wheat;
+  text-shadow:
+    0px 0px 10px black,
+    0px 0px 10px black,
+    0px 0px 10px black,
+    0px 0px 10px black;
   width: 100%;
   cursor: pointer;
 }
-#roadmap .road {
-  margin: 0 0.5rem;
+.road {
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 95%;
+  width: 100%;
   max-height: 80rem;
 }
-#roadmap .road .sts {
+.road .sts {
+  background-image: url(/img/parchment-anunce.png);
+  background-size: cover;
+  padding: 2rem 0.6rem 0.5rem 0.6rem;
   height: 100%;
-  margin: 0.6rem 0;
 }
-#roadmap .road .sts p {
+.road .sts p {
   font-size: 1.5rem;
 }
 /*barra de progreso de cada sts*/
-#roadmap .road input[type='range'] {
+.road input[type='range'] {
   initial-value: 0;
 }
-#roadmap .road .bar {
+.road .bar {
   width: 100%;
   height: 0.5rem;
   border-radius: 1rem;
   background-color: rebeccapurple;
 }
-#roadmap .road .bar::-moz-range-thumb {
+.road .bar::-moz-range-thumb {
   background: transparent;
   display: none;
   border: none;
 }
-#roadmap .road .bar::-webkit-slider-thumb {
+.road .bar::-webkit-slider-thumb {
   background: transparent;
   display: none;
   border: none;
 }
-#roadmap .road .bar::-moz-range-progress {
+.road .bar::-moz-range-progress {
   background: rgb(113, 143, 69);
   height: 100%;
   border-radius: 1rem;
 }
-#roadmap .road .bar::-webkit-slider-thumb {
+.road .bar::-webkit-slider-thumb {
   background: rgb(113, 143, 69);
   height: 100%;
   border-radius: 1rem;

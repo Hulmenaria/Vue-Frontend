@@ -1,0 +1,272 @@
+import { defineStore } from 'pinia'
+
+export const markMapStore = defineStore('markMap', {
+  state: () => ({
+    markMap: {
+      bleed: {
+        es: 'sangrado',
+        keywords: {
+          en: ['blood', 'bleed', 'bleeding', 'drain', 'loss', 'hemorrhage'],
+          es: [
+            'sangre',
+            'sangrado',
+            'hemorragia',
+            'herida',
+            'desangrar',
+            'pérdida',
+            'goteo',
+            'flujo',
+            'derrame',
+            'exudado',
+            'supuración',
+            'drenaje',
+          ],
+        },
+      },
+      wound: {
+        es: 'herida',
+        keywords: {
+          en: ['bone', 'fracture', 'break', 'splinter', 'wound', 'cut', 'gash', 'injury'],
+          es: [
+            'hueso',
+            'fractura',
+            'rotura',
+            'hueso',
+            'astilla',
+            'herida',
+            'corte',
+            'lesión',
+            'magulladura',
+            'contusión',
+            'golpe',
+            'traumatismo',
+            'laceración',
+            'desgarro',
+            'raspadura',
+            'abrasión',
+            'pinchazo',
+            'perforación',
+          ],
+        },
+      },
+      dread: {
+        es: 'terror',
+        keywords: {
+          en: ['dread', 'fear', 'scare', 'panic', 'horror', 'terror', 'fright', 'anxiety'],
+          es: [
+            'miedo',
+            'pánico',
+            'espanto',
+            'ansiedad',
+            'pavor',
+            'susto',
+            'temor',
+            'angustia',
+            'inquietud',
+            'aprensión',
+            'alarma',
+            'sobresalto',
+            'consternación',
+            'fobia',
+          ],
+        },
+      },
+      drunk: {
+        es: 'ebrio',
+        keywords: {
+          en: ['drunk', 'alcohol', 'inebriate', 'tipsy', 'wasted', 'hangover', 'booze'],
+          es: [
+            'ebrio',
+            'borracho',
+            'alcoholizado',
+            'mareado',
+            'resaca',
+            'bebido',
+            'embriagado',
+            'beodo',
+            'tomado',
+            'achispado',
+            'pedo',
+            'contentillo',
+            'chispa',
+            'alegre',
+            'colocado',
+          ],
+        },
+      },
+      blind: {
+        es: 'ciego',
+        keywords: {
+          en: ['eye', 'sight', 'vision', 'blind', 'darkness', 'sightless', 'unseeing'],
+          es: [
+            'ojo',
+            'vista',
+            'visión',
+            'ciego',
+            'oscuridad',
+            'invidente',
+            'ofuscado',
+            'deslumbrado',
+            'obstruido',
+            'nublado',
+            'opaco',
+            'velado',
+            'obnubilado',
+            'enceguecido',
+            'impedido',
+            'turbio',
+          ],
+        },
+      },
+      burnt: {
+        es: 'quemado',
+        keywords: {
+          en: ['fire', 'burn', 'burnt', 'burned', 'blaze', 'flame', 'scorch', 'sear'],
+          es: [
+            'fuego',
+            'quemadura',
+            'quemado',
+            'ardor',
+            'llama',
+            'chamuscado',
+            'abrasado',
+            'calcinado',
+            'carbonizado',
+            'tostado',
+            'incendiado',
+            'achicharrado',
+            'socarrado',
+            'requemado',
+            'ardiente',
+          ],
+        },
+      },
+      poison: {
+        es: 'veneno',
+        keywords: {
+          en: ['poison', 'toxin', 'venom', 'contaminate', 'toxic', 'poisonous', 'taint'],
+          es: [
+            'veneno',
+            'tóxico',
+            'toxina',
+            'contaminado',
+            'envenenado',
+            'ponzoña',
+            'tósigo',
+            'emponzoñado',
+            'nocivo',
+            'venenoso',
+            'letal',
+            'mortífero',
+            'corrosivo',
+            'dañino',
+          ],
+        },
+      },
+      petrify: {
+        es: 'petrificado',
+        keywords: {
+          en: ['stone', 'rock', 'petrify', 'marble', 'statue', 'solidify', 'harden'],
+          es: [
+            'piedra',
+            'roca',
+            'petrificado',
+            'estatua',
+            'solidificado',
+            'endurecido',
+            'paralizado',
+            'inmóvil',
+            'rígido',
+            'yerto',
+            'congelado',
+            'tieso',
+            'pétreo',
+            'rocoso',
+            'mineral',
+          ],
+        },
+      },
+      stun: {
+        es: 'aturdido',
+        keywords: {
+          en: ['stun', 'knockout', 'paralyze', 'freeze', 'daze', 'shock', 'numb'],
+          es: [
+            'aturdido',
+            'noqueado',
+            'paralizado',
+            'congelado',
+            'mareado',
+            'shock',
+            'desorientado',
+            'confuso',
+            'desconcertado',
+            'pasmado',
+            'estupefacto',
+            'perplejo',
+            'atontado',
+            'inconsciente',
+            'desequilibrado',
+          ],
+        },
+      },
+      intoxicated: {
+        es: 'intoxicado',
+        keywords: {
+          en: ['poison', 'sick', 'nausea', 'vomit', 'ill', 'disease'],
+          es: [
+            'intoxicado',
+            'enfermo',
+            'náusea',
+            'vómito',
+            'malestar',
+            'indispuesto',
+            'mareado',
+            'descompuesto',
+            'envenenado',
+            'emponzoñado',
+            'contaminado',
+            'afectado',
+            'deteriorado',
+          ],
+        },
+      },
+      unknown: {
+        es: 'desconocido',
+        keywords: {
+          en: ['default', 'unknown', 'none', 'undefined', 'mystery'],
+          es: [
+            'desconocido',
+            'ninguno',
+            'indefinido',
+            'misterioso',
+            'ignoto',
+            'incógnito',
+            'anónimo',
+            'extraño',
+            'inexplorado',
+            'oculto',
+            'secreto',
+            'enigmático',
+            'indeterminado',
+          ],
+        },
+      },
+    },
+  }),
+  getters: {
+    getKeywordId:
+      (state) =>
+      (input, lang = 'en') => {
+        const normalizedInput = input?.trim().toLowerCase()
+        if (!normalizedInput) return 'unknown'
+
+        for (const [id, entry] of Object.entries(state.semanticMap)) {
+          const allKeywords = [...entry.keywords.en, ...entry.keywords.es]
+          if (allKeywords.includes(normalizedInput)) {
+            return id
+          }
+        }
+        return 'unknown'
+      },
+  },
+})

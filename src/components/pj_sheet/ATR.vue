@@ -136,9 +136,10 @@ section .especial .luck select {
   margin: 0;
 }
 .ill img {
-  width: 0.8rem;
-  height: 2rem;
-  margin: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: -0.8rem;
+  padding: 0.1rem;
   border: none;
   overflow: hidden;
 }
@@ -607,7 +608,7 @@ section .especial .luck select {
         </label>
       </div>
       <div class="ill" v-for="(wound, index) in store.sheetData.atr.wounds" :key="wound.id">
-        <img :src="foundImage(wound.id)" :alt="wound.name" />
+        <img :src="foundImage(wound.name)" :alt="wound.name" />
         <label class="wound">
           <input type="text" v-model="wound.name" @blur="newWound(index)" />
         </label>
@@ -674,13 +675,13 @@ section .especial .luck select {
 </template>
 
 <script setup>
-import { watch, onMounted, ref, computed } from 'vue'
+import { watch, onMounted, ref } from 'vue'
 import { useSheetDataStore, dowerMapping } from '@/stores/sheetDataStore'
-
 const store = useSheetDataStore()
+import { markMapStore } from '@/stores/markMapStore'
+const markMap = markMapStore()
 
 const isExpanded = ref(false)
-
 const openStats = () => {
   isExpanded.value = !isExpanded.value
 }
@@ -765,8 +766,21 @@ const watchAttributes = () => {
   })
 }
 
+//maneja la devoción
+const devUpdate = (event) => {
+  const inputValue = Number(event.target.value) || 0
+  store.sheetData.atr.devInsert = inputValue
+  store.sheetData.atr.devotion += inputValue
+  store.sheetData.atr.devInsert = ''
+
+  if (store.sheetData.atr.devotion >= 100) {
+    store.sheetData.atr.dp++
+    store.sheetData.atr.devotion = store.sheetData.atr.devotion - 100
+  }
+}
+
 // Agrega y borra las heridas
-const newWound = (index) => {
+const newWound = async (index) => {
   if (
     store.sheetData.atr.wounds[index].name === '' &&
     store.sheetData.atr.wounds.length > 1 &&
@@ -803,36 +817,37 @@ const downGrade = (wound) => {
 
 const marks = ref([])
 
-// Computada para encontrar la imagen por ID
-const foundImage = (id) => {
-  return marks.value.find((image) => image.id == id)
+const foundImage = (name) => {
+  const normalized = name.trim().toLowerCase()
+
+  const match = Object.entries(markMap.markMap).find(([_, markData]) => {
+    const allKeywords = [...markData.keywords.en, ...markData.keywords.es]
+    return allKeywords.some((keyword) => normalized.includes(keyword))
+  })
+
+  if (match) {
+    const [markId] = match
+    const markImage = marks.value.find((mark) => mark.id === markId)
+    if (markImage) {
+      return markImage.image || '/icon/mark/mark-exclam.png'
+    }
+  }
+  return normalized ? '/icon/mark/mark-exclam.png' : ''
 }
 
-// //fetch para las marks de wound
-// const fetchImages = async () => {
-//   try {
-//     const response = await fetch('/collections/mark.json')
-//     if (!response.ok) {
-//       throw new Error('JSON not found')
-//     }
-//     const data = await response.json()
-//     marks.value = data.marks
-//   } catch (err) {
-//     console.error('Error al cargar imágenes:', err)
-//     marks.value = []
-//   }
-// }
-
-//maneja la devoción
-const devUpdate = (event) => {
-  const inputValue = Number(event.target.value) || 0
-  store.sheetData.atr.devInsert = inputValue
-  store.sheetData.atr.devotion += inputValue
-  store.sheetData.atr.devInsert = ''
-
-  if (store.sheetData.atr.devotion >= 100) {
-    store.sheetData.atr.dp++
-    store.sheetData.atr.devotion = store.sheetData.atr.devotion - 100
+//fetch para las marks de wound
+const fetchImages = async () => {
+  try {
+    const response = await fetch('/collections/mark.json')
+    if (!response.ok) {
+      throw new Error('JSON not found')
+    }
+    const data = await response.json()
+    marks.value = data.marks
+    console.log('Marks loaded:', marks.value)
+  } catch (err) {
+    console.error('Error al cargar imágenes:', err)
+    marks.value = []
   }
 }
 
