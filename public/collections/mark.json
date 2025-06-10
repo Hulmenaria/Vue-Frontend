@@ -29,7 +29,7 @@
       "image": "/icon/mark/mark-poison.png"
     },
     {
-      "id": "prytify",
+      "id": "petrify",
       "image": "/icon/mark/mark-stone.png"
     },
     {
@@ -37,7 +37,7 @@
       "image": "/icon/mark/mark-stun.png"
     },
     {
-      "id": "intoxicate",
+      "id": "intoxicated",
       "image": "/icon/mark/mark-toxin.png"
     },
     {

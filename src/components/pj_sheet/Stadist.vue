@@ -38,26 +38,26 @@ section {
       </label>
       <div class="row-cuadrado">
         <p>Alignment</p>
-        <label
-          ><select name="temper" v-model="store.sheetData.std.temper">
+        <label>
+          <select name="temper" v-model="store.sheetData.std.temper">
             <option>Temper</option>
             <option>Altruist</option>
             <option>Lawful</option>
             <option>Moderate</option>
             <option>Vicious</option>
             <option>Chaotic</option>
-          </select></label
-        >
-        <label
-          ><select name="attitude" v-model="store.sheetData.std.attitude">
+          </select>
+        </label>
+        <label>
+          <select name="attitude" v-model="store.sheetData.std.attitude">
             <option>Attitude</option>
             <option>Gentle</option>
             <option>Moderate</option>
             <option>Agressive</option>
-          </select></label
-        >
-        <label
-          ><select name="faction" v-model="store.sheetData.std.faction">
+          </select>
+        </label>
+        <label>
+          <select name="faction" v-model="store.sheetData.std.faction">
             <option>Faction</option>
             <option>Imperial</option>
             <option>Sylvan</option>
@@ -69,10 +69,10 @@ section {
             <option>Noctil</option>
             <option>Cultist</option>
             <option>Ravager</option>
-          </select></label
-        >
-        <label
-          ><select name="function" v-model="store.sheetData.std.function">
+          </select>
+        </label>
+        <label>
+          <select name="function" v-model="store.sheetData.std.function">
             <option>Function</option>
             <option>Guardian</option>
             <option>Stalker</option>
@@ -82,18 +82,19 @@ section {
             <option>Hoarder</option>
             <option>Researcher</option>
             <option>Emissary</option>
-          </select></label
-        >
+          </select>
+        </label>
       </div>
       <div class="row-2">
-        <label
-          >Age<input type="number" min="1" name="age" v-model="store.sheetData.std.age"
-        /></label>
+        <label>
+          Age
+          <input type="number" min="1" name="age" v-model="store.sheetData.std.age" />
+        </label>
         <label>Title<input type="text" name="title" v-model="store.sheetData.std.title" /></label>
       </div>
       <div class="row-2">
-        <label class="row-1"
-          >Sign<select name="incarnation" v-model="store.sheetData.std.incarnation">
+        <label class="row-1">
+          Sign<select name="incarnation" v-model="store.sheetData.std.incarnation">
             <option>Incarnation</option>
             <option>Dragon</option>
             <option>Phoe</option>
@@ -105,10 +106,10 @@ section {
             <option>Hydra</option>
             <option>Lammasu</option>
             <option>Gryphon</option>
-          </select></label
-        >
-        <label class="row-1"
-          ><select name="constelation" v-model="store.sheetData.std.constelation">
+          </select>
+        </label>
+        <label class="row-1">
+          <select name="constelation" v-model="store.sheetData.std.constelation">
             <option>Constelation</option>
             <option>Labrator</option>
             <option>Artisan</option>
@@ -128,12 +129,12 @@ section {
             <option>Healer</option>
             <option>Soothsayer</option>
             <option>Priest</option>
-          </select></label
-        >
+          </select>
+        </label>
       </div>
       <div class="row-2">
-        <label
-          >Class1
+        <label>
+          Class1
           <input type="number" name="class1Talent" v-model="store.sheetData.std.class1Talent" />
         </label>
         <label><input type="text" name="class1" v-model="store.sheetData.std.class1" /></label>
@@ -146,8 +147,8 @@ section {
         <label><input type="text" name="class2" v-model="store.sheetData.std.class2" /></label>
       </div>
       <div class="row-2">
-        <label
-          >Class3
+        <label>
+          Class3
           <input type="number" name="class3Talent" v-model="store.sheetData.std.class3Talent" />
         </label>
         <label><input type="text" name="class3" v-model="store.sheetData.std.class3" /></label>
@@ -173,13 +174,7 @@ section {
         </label>
         <label>
           Mx
-          <input
-            type="number"
-            min="5"
-            readonly
-            name="mxMistyc"
-            v-model="store.sheetData.std.mxMistyc"
-          />
+          <input type="number" min="5" name="mxMistyc" v-model="store.sheetData.std.mxMistyc" />
         </label>
       </div>
       <div class="row-3">
@@ -191,21 +186,22 @@ section {
             <option>Sentiment</option>
           </select>
         </label>
-        <label
-          >Ac<input
+        <label>
+          Ac<input
             type="number"
             min="5"
             name="acInsiders"
             v-model="store.sheetData.std.acInsiders"
-        /></label>
-        <label
-          >Mx<input
+          />
+        </label>
+        <label>
+          Mx<input
             type="number"
             min="5"
-            readonly
             name="mxInsiders"
             v-model="store.sheetData.std.mxInsiders"
-        /></label>
+          />
+        </label>
       </div>
       <div class="row-3">
         <label>
@@ -215,88 +211,89 @@ section {
             <option>Exaner</option>
           </select>
         </label>
-        <label
-          >Ac<input
+        <label>
+          Ac<input
             type="number"
             min="5"
             name="acNaturals"
             v-model="store.sheetData.std.acNaturals"
-        /></label>
-        <label
-          >Mx<input
+          />
+        </label>
+        <label>
+          Mx<input
             type="number"
             min="5"
-            readonly
             name="mxNaturals"
             v-model="store.sheetData.std.mxNaturals"
-        /></label>
+          />
+        </label>
       </div>
       <div class="row-4">
         <p>H.P.</p>
-        <label
-          >Ac<input type="number" min="1" name="acHP" v-model="store.sheetData.std.acHP"
-        /></label>
-        <label
-          >Mx<input type="number" min="1" readonly name="mxHP" v-model="store.sheetData.std.mxHP"
-        /></label>
+        <label>
+          Ac<input type="number" min="1" name="acHP" v-model="store.sheetData.std.acHP" />
+        </label>
+        <label>
+          Mx<input type="number" min="1" name="mxHP" v-model="store.sheetData.std.mxHP" />
+        </label>
         <p>C.P.</p>
-        <label
-          >Ac<input type="number" min="1" name="acCP" v-model="store.sheetData.std.acCP"
-        /></label>
-        <label
-          >Mx<input type="number" min="1" readonly name="mxCP" v-model="store.sheetData.std.mxCP"
-        /></label>
+        <label>
+          Ac<input type="number" min="1" name="acCP" v-model="store.sheetData.std.acCP" />
+        </label>
+        <label>
+          Mx<input type="number" min="1" name="mxCP" v-model="store.sheetData.std.mxCP" />
+        </label>
       </div>
       <div class="row-4">
-        <label
-          ><p>N.A.</p>
-          <input type="number" min="1" readonly name="na" v-model="store.sheetData.std.na" />
+        <label>
+          <p>N.A.</p>
+          <input type="number" min="1" name="na" v-model="store.sheetData.std.na" />
         </label>
-        <label
-          ><p>Arm</p>
-          <input type="number" min="1" readonly name="arm" v-model="store.sheetData.std.arm" />
+        <label>
+          <p>Arm</p>
+          <input type="number" min="1" name="arm" v-model="store.sheetData.std.arm" />
         </label>
         <p class="short">p</p>
-        <label
-          >Ac<input type="number" min="1" name="acp" v-model="store.sheetData.std.acP"
-        /></label>
-        <label
-          >Mx<input type="number" min="1" readonly name="mxp" v-model="store.sheetData.std.mxP"
-        /></label>
+        <label>
+          Ac<input type="number" min="1" name="acp" v-model="store.sheetData.std.acP" />
+        </label>
+        <label>
+          Mx<input type="number" min="1" name="mxp" v-model="store.sheetData.std.mxP" />
+        </label>
       </div>
       <div class="row-4">
         <p>Res</p>
-        <label
-          >Ac<input type="number" min="5" name="acRes" v-model="store.sheetData.std.acRes"
-        /></label>
-        <label
-          >Mx<input type="number" min="5" readonly name="mxRes" v-model="store.sheetData.std.mxRes"
-        /></label>
+        <label>
+          Ac<input type="number" min="5" name="acRes" v-model="store.sheetData.std.acRes" />
+        </label>
+        <label>
+          Mx<input type="number" min="5" name="mxRes" v-model="store.sheetData.std.mxRes" />
+        </label>
         <p>Ham</p>
-        <label
-          >Ac<input type="number" min="1" name="acHam" v-model="store.sheetData.std.acHam"
-        /></label>
-        <label
-          >Mx<input type="number" min="1" readonly name="mxHam" v-model="store.sheetData.std.mxHam"
-        /></label>
+        <label>
+          Ac<input type="number" min="1" name="acHam" v-model="store.sheetData.std.acHam" />
+        </label>
+        <label>
+          Mx<input type="number" min="1" name="mxHam" v-model="store.sheetData.std.mxHam" />
+        </label>
       </div>
       <div class="row-4">
         <p>Cor</p>
-        <label
-          ><span>%</span
-          ><input type="number" min="0" name="percentCor" v-model="store.sheetData.std.percentCor"
-        /></label>
-        <label
-          >-/d<input type="number" readonly name="minusCor" v-model="store.sheetData.std.minusCor"
-        /></label>
+        <label>
+          <span>%</span>
+          <input type="number" min="0" name="percentCor" v-model="store.sheetData.std.percentCor" />
+        </label>
+        <label>
+          -/d<input type="number" name="minusCor" v-model="store.sheetData.std.minusCor" />
+        </label>
         <p>Mad</p>
-        <label
-          ><span>%</span
-          ><input type="number" min="0" name="percentLoc" v-model="store.sheetData.std.percentLoc"
-        /></label>
-        <label
-          >-/d<input type="number" readonly name="minusLoc" v-model="store.sheetData.std.minusLoc"
-        /></label>
+        <label>
+          <span>%</span>
+          <input type="number" min="0" name="percentLoc" v-model="store.sheetData.std.percentLoc" />
+        </label>
+        <label>
+          -/d<input type="number" name="minusLoc" v-model="store.sheetData.std.minusLoc" />
+        </label>
       </div>
     </section>
   </form>
