@@ -49,9 +49,8 @@ export const markMapStore = defineStore('markMap', {
             'hemorrag',
             'lacera',
             'raja',
-            'sangr',
-            'taja',
-            'tajo',
+            'sang',
+            'taj',
           ],
         },
       },
@@ -95,12 +94,13 @@ export const markMapStore = defineStore('markMap', {
         es: 'terror',
         keywords: {
           en: [
+            'aberra',
+            'apprehen',
             'afflict',
             'anguish',
             'anxiety',
             'crav',
-            'aberra',
-            'apprehen',
+            'dread',
             'consterna',
             'horr',
             'distres',
@@ -178,6 +178,7 @@ export const markMapStore = defineStore('markMap', {
             'supli',
             'sust',
             'temor',
+            'terro',
             'torment',
             'tortur',
             'tribul',
@@ -208,9 +209,9 @@ export const markMapStore = defineStore('markMap', {
             'achispad',
             'alcohol',
             'alegre',
-            'bebido',
-            'beodo',
-            'borracho',
+            'bebid',
+            'beod',
+            'borrach',
             'chispa',
             'cogor',
             'colocad',
@@ -219,7 +220,7 @@ export const markMapStore = defineStore('markMap', {
             'curd',
             'desfas',
             'dipsom',
-            'ebrio',
+            'ebri',
             'embriag',
             'mamad',
             'melop',
@@ -228,7 +229,7 @@ export const markMapStore = defineStore('markMap', {
             'pedo',
             'piripi',
             'resaca',
-            'tomado',
+            'toma',
             'tinkiwinki',
           ],
         },
@@ -236,17 +237,7 @@ export const markMapStore = defineStore('markMap', {
       intoxicated: {
         es: 'intoxicado',
         keywords: {
-          en: [
-            'acrid',
-            'bitter',
-            'caustic',
-            'moldy',
-            'noxious',
-            'taint',
-            'toxic',
-            'smear',
-            'stained',
-          ],
+          en: ['acrid', 'bitter', 'caustic', 'moldy', 'noxious', 'taint', 'smear', 'stained'],
           es: [
             'acid',
             'acerb',
@@ -281,13 +272,13 @@ export const markMapStore = defineStore('markMap', {
             'frig',
             'froz',
             'knock',
-            'peace',
             'passi',
+            'peace',
+            'petrif',
             'rig',
             'rock',
             'statue',
             'stone',
-            'stun',
             'unmov',
           ],
           es: [
@@ -367,6 +358,7 @@ export const markMapStore = defineStore('markMap', {
             'numb',
             'overwhel',
             'shocked',
+            'stun',
             'surpris',
             'trapped',
             'unbalanced',
@@ -395,7 +387,7 @@ export const markMapStore = defineStore('markMap', {
             'estupefact',
             'impavid',
             'maravilla',
-            'mareado',
+            'maread',
             'nausea',
             'ofusca',
             'pasmad',
@@ -466,6 +458,7 @@ export const markMapStore = defineStore('markMap', {
         },
       },
     },
+    marks: [],
   }),
   getters: {
     getKeywordId:
@@ -474,13 +467,44 @@ export const markMapStore = defineStore('markMap', {
         const normalizedInput = input?.trim().toLowerCase()
         if (!normalizedInput) return 'unknown'
 
-        for (const [id, entry] of Object.entries(state.semanticMap)) {
+        for (const [id, entry] of Object.entries(state.markMap)) {
           const allKeywords = [...entry.keywords.en, ...entry.keywords.es]
-          if (allKeywords.includes(normalizedInput)) {
+          if (allKeywords.some((keyword) => normalizedInput.includes(keyword))) {
             return id
           }
         }
         return 'unknown'
       },
+  },
+  actions: {
+    async fetchImages() {
+      try {
+        const response = await fetch('/collections/mark.json')
+        if (!response.ok) {
+          throw new Error('JSON not found')
+        }
+        const data = await response.json()
+        this.marks = data.marks
+      } catch (err) {
+        console.error('Error al cargar imágenes:', err)
+        this.marks = []
+      }
+    },
+
+    getMarkImage(type) {
+      const normalized = type.toString().trim().toLowerCase()
+
+      const match = Object.entries(this.markMap).find(([_, markData]) => {
+        const allKeywords = [...markData.keywords.en, ...markData.keywords.es]
+        return allKeywords.some((keyword) => normalized.includes(keyword))
+      })
+
+      if (match) {
+        const [markId] = match
+        const markImage = this.marks.find((mark) => mark.id === markId)
+        return markImage?.image
+      }
+      return normalized ? '/icon/mark/mark-exclam.png' : ''
+    },
   },
 })

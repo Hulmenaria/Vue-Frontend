@@ -54,7 +54,7 @@ export const useSheetDataStore = defineStore('sheetData', {
           art: 0,
           des: 0,
         },
-        wounds: [{ id: 1, name: '', stadium: 0, grade: 1 }],
+        wounds: [{ id: 1, name: '', stadium: 0, grade: 1, type: '' }],
         deityName: '',
         dp: 0,
         luckSelect: '',
@@ -401,7 +401,6 @@ export const useSheetDataStore = defineStore('sheetData', {
         quiver_text6: '',
         quiver_ac6: 0,
       },
-
       inv: {
         // Monedero
         cb: 0,
@@ -425,7 +424,21 @@ export const useSheetDataStore = defineStore('sheetData', {
           rarity: 0,
           effect: '',
           durability: 0,
-          items: [], // Array para los items dentro de la bolsa
+          items: [
+            {
+              name: '',
+              units: 0,
+              durability: 0,
+              effect: '',
+              quality: 0,
+              rarity: 0,
+              type: '',
+              price: 0,
+              armor: 0,
+              material: '',
+              damage: '',
+            },
+          ],
         },
 
         // Bolsa 2
@@ -438,7 +451,21 @@ export const useSheetDataStore = defineStore('sheetData', {
           rarity: 0,
           effect: '',
           durability: 0,
-          items: [], // Array para los items dentro de la bolsa
+          items: [
+            {
+              name: '',
+              units: 0,
+              durability: 0,
+              effect: '',
+              quality: 0,
+              rarity: 0,
+              type: '',
+              price: 0,
+              armor: 0,
+              material: '',
+              damage: '',
+            },
+          ],
         },
       },
       dtPoints: {

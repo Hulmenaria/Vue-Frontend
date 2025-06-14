@@ -101,15 +101,20 @@ select {
 }
 
 .dots {
-  width: 0;
+  width: 100vw;
   height: 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
   position: relative;
-  top: 0.5rem;
-  left: 1rem;
+  top: 1rem;
+  left: 0rem;
   z-index: 10;
 }
 .dots img {
-  height: 1.5rem;
+  height: 1.2rem;
+  width: auto;
+  margin: 0 0.3rem;
 }
 .store {
   background-color: var(--marron);
@@ -173,8 +178,8 @@ select {
       </select>
       <p>{{ energy }}</p>
     </div>
-    <div class="dots">
-      <img src="" alt="mark" />
+    <div class="dots" v-if="uniqueWoundTypes.size > 0">
+      <img v-for="type in uniqueWoundTypes" :key="type" :src="foundMark(type)" />
     </div>
     <Equip />
     <Inv />
@@ -192,14 +197,25 @@ select {
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useSheetDataStore } from '@/stores/sheetDataStore'
+import { ref, computed } from 'vue'
 import Equip from '../components/pj_sheet/Equip.vue'
 import Inv from '../components/pj_sheet/Inv.vue'
 import Stadist from '@/components/pj_sheet/Stadist.vue'
 import ATR from '../components/pj_sheet/ATR.vue'
-
+import { useSheetDataStore } from '@/stores/sheetDataStore'
 const store = useSheetDataStore()
+import { markMapStore } from '@/stores/markMapStore'
+const markMap = markMapStore()
+
+const uniqueWoundTypes = computed(() => {
+  if (!store.sheetData.atr.wounds?.length) return new Set()
+  const validWounds = store.sheetData.atr.wounds.filter((wound) => wound.name.trim() !== '')
+  return new Set(validWounds.map((wound) => wound.type))
+})
+
+const foundMark = (type) => {
+  return markMap.getMarkImage(type)
+}
 
 const isStadistOpen = ref(false)
 const isAtrOpen = ref(false)

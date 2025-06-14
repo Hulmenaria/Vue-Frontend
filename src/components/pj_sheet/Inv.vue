@@ -74,159 +74,164 @@ form section[class*='inv'] div:first-child {
   <form>
     <div class="pouch">
       <p>Pouch:</p>
-      <label>Cb<input type="number" name="cb" /></label>
-      <label>Pt<input type="number" name="pt" /></label>
-      <label>Or<input type="number" name="or" /></label>
-      <label>Pl<input type="number" name="pl" /></label>
-      <label><input type="text" name="coin1" /></label>
-      <label><input type="number" name="coin1Cant" /></label>
-      <label><input type="text" name="coin2" /></label>
-      <label><input type="number" name="coin2Cant" /></label>
-      <label><input type="text" name="coin3" /></label>
-      <label><input type="number" name="coin3Cant" /></label>
+      <label>Cb<input type="number" v-model="store.sheetData.inv.cb" name="cb" /></label>
+      <label>Pt<input type="number" v-model="store.sheetData.inv.pt" name="pt" /></label>
+      <label>Or<input type="number" v-model="store.sheetData.inv.or" name="or" /></label>
+      <label>Pl<input type="number" v-model="store.sheetData.inv.pl" name="pl" /></label>
+      <label><input type="text" v-model="store.sheetData.inv.coin1" name="coin1" /></label>
+      <label
+        ><input type="number" v-model="store.sheetData.inv.coin1Cant" name="coin1Cant"
+      /></label>
+      <label><input type="text" v-model="store.sheetData.inv.coin2" name="coin2" /></label>
+      <label
+        ><input type="number" v-model="store.sheetData.inv.coin2Cant" name="coin2Cant"
+      /></label>
+      <label><input type="text" v-model="store.sheetData.inv.coin3" name="coin3" /></label>
+      <label
+        ><input type="number" v-model="store.sheetData.inv.coin3Cant" name="coin3Cant"
+      /></label>
     </div>
     <section class="inv" id="inv" :style="bag1Style">
       <div>
-        <p @click="openBag('bag1')">{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
+        <p @click="openBag('bag1')">
+          {{ store.sheetData.inv.bag1.name }} {{ store.sheetData.inv.bag1.type }}
+        </p>
         <button type="button" @click="showDialog('bag1')">
           <img src="/icon/item/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag1">
-        <p>{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
+        <p>{{ store.sheetData.inv.bag1.name }} {{ store.sheetData.inv.bag1.type }}</p>
         <div>
           <label class="box-name">
-            <input
-              type="text"
-              name="bag-name"
-              :value="bags.bag1.name.value"
-              @input="(e) => updateBag('bag1', 'name', e)"
-            />
+            <input type="text" v-model="store.sheetData.inv.bag1.name" name="bag-name" />
           </label>
-          <label class="box-text"
-            >t
-            <input
-              type="text"
-              name="bag-t"
-              :value="bags.bag1.type.value"
-              @input="(e) => updateBag('bag1', 'type', e)"
-            />
+          <label class="box-text">
+            t<input type="text" v-model="store.sheetData.inv.bag1.type" name="bag-t" />
           </label>
-          <label class="box-weight"
-            >Mx
-            <input
-              type="number"
-              name="bag-mx"
-              :value="bags.bag1.maxCapacity.value"
-              @input="(e) => updateMaxCapacity('bag1', e)"
-            />
+          <label class="box-weight">
+            Mx<input type="number" v-model="store.sheetData.inv.bag1.maxCapacity" name="bag-mx" />
           </label>
-          <label class="box-text">m<input type="text" name="bag-m" /></label>
-          <label class="box-number">c<input type="number" name="bag-c" /></label>
-          <label class="box-number">r<input type="number" name="bag-r" /></label>
-          <label class="box-text">e<input type="text" name="bag-e" /></label>
-          <label class="box-weight">%d<input type="number" name="bag-d" /></label>
+          <label class="box-text">
+            m<input type="text" v-model="store.sheetData.inv.bag1.material" name="bag-m" />
+          </label>
+          <label class="box-number">
+            c<input type="number" v-model="store.sheetData.inv.bag1.quality" name="bag-c" />
+          </label>
+          <label class="box-number">
+            r<input type="number" v-model="store.sheetData.inv.bag1.rarity" name="bag-r" />
+          </label>
+          <label class="box-text">
+            e<input type="text" v-model="store.sheetData.inv.bag1.effect" name="bag-e" />
+          </label>
+          <label class="box-weight">
+            %d<input type="number" v-model="store.sheetData.inv.bag1.durability" name="bag-d" />
+          </label>
         </div>
       </dialog>
-      <div v-for="(input, index) in bags.bag1.inputs.value" :key="index" class="row-bag">
+      <div v-for="(item, index) in store.sheetData.inv.bag1.items" :key="index" class="row-bag">
         <label>
           <input
             type="text"
             :name="'obj' + index + 'Name'"
-            v-model="bags.bag1.inputs.value[index]"
+            v-model="item.name"
             @input="(e) => newInput('bag1', index)"
           />
         </label>
-        <label>u<input type="number" :name="'obj' + index + 'u'" /></label>
-        <label>%d<input type="number" :name="'obj' + index + 'd'" /></label>
+        <label>u<input type="number" v-model="item.units" :name="'obj' + index + 'u'" /></label>
+        <label
+          >%d
+          <input type="number" v-model="item.durability" :name="'obj' + index + 'd'" />
+        </label>
         <div class="info">
           <p>{{ nombre }}</p>
           <p>e</p>
-          <p class="label-x">{{ e }}</p>
+          <p class="label-x">{{ item.effect }}</p>
           <p>c</p>
-          <p class="label-s">{{ c }}</p>
+          <p class="label-s">{{ item.quality }}</p>
           <p>r</p>
-          <p class="label-s">{{ r }}</p>
+          <p class="label-s">{{ item.rarity }}</p>
           <p>t</p>
-          <p class="label-x">{{ t }}</p>
+          <p class="label-x">{{ item.type }}</p>
           <p>p</p>
-          <p class="label-s">{{ p }}</p>
+          <p class="label-s">{{ item.price }}</p>
           <p>a</p>
-          <p class="label-s">{{ a }}</p>
+          <p class="label-s">{{ item.armor }}</p>
           <p>m</p>
-          <p class="label-x">{{ m }}</p>
-          <p class="label-l">{{ dmg }}</p>
+          <p class="label-x">{{ item.material }}</p>
+          <p class="label-l">{{ item.damage }}</p>
         </div>
       </div>
     </section>
     <section class="inv2" id="inv2" :style="bag2Style">
       <div>
-        <p @click="openBag('bag2')">{{ bags.bag2.name.value }} {{ bags.bag2.type.value }}</p>
+        <p @click="openBag('bag2')">
+          {{ store.sheetData.inv.bag2.name }} {{ store.sheetData.inv.bag2.type }}
+        </p>
         <button type="button" @click="showDialog('bag2')">
           <img src="/icon/item/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag2">
-        <p>{{ bags.bag2.name.value }} {{ bags.bag2.type.value }}</p>
+        <p>{{ store.sheetData.inv.bag2.name }} {{ store.sheetData.inv.bag2.type }}</p>
         <div>
           <label class="box-name">
-            <input
-              type="text"
-              name="bag2-name"
-              :value="bags.bag2.name.value"
-              @input="(e) => updateBag('bag2', 'name', e)"
-            />
+            <input type="text" v-model="store.sheetData.inv.bag2.name" name="bag2-name" />
           </label>
           <label class="box-text">
-            t<input
-              type="text"
-              name="bag2-t"
-              :value="bags.bag2.type.value"
-              @input="(e) => updateBag('bag2', 'type', e)"
-            />
+            t<input type="text" v-model="store.sheetData.inv.bag2.type" name="bag2-t" />
           </label>
           <label class="box-weight">
-            Mx<input
-              type="number"
-              name="bag2-mx"
-              :value="bags.bag2.maxCapacity.value"
-              @input="(e) => updateMaxCapacity('bag2', e)"
-            />
+            Mx<input type="number" v-model="store.sheetData.inv.bag2.maxCapacity" name="bag2-mx" />
           </label>
-          <label class="box-text">m<input type="text" name="bag2-m" /></label>
-          <label class="box-number">c<input type="number" name="bag2-c" /></label>
-          <label class="box-number">r<input type="number" name="bag2-r" /></label>
-          <label class="box-text">e<input type="text" name="bag2-e" /></label>
-          <label class="box-weight">%d<input type="number" name="bag2-d" /></label>
+          <label class="box-text">
+            m<input type="text" v-model="store.sheetData.inv.bag2.material" name="bag2-m" />
+          </label>
+          <label class="box-number">
+            c<input type="number" v-model="store.sheetData.inv.bag2.quality" name="bag2-c" />
+          </label>
+          <label class="box-number">
+            r<input type="number" v-model="store.sheetData.inv.bag2.rarity" name="bag2-r" />
+          </label>
+          <label class="box-text">
+            e<input type="text" v-model="store.sheetData.inv.bag2.effect" name="bag2-e" />
+          </label>
+          <label class="box-weight">
+            %d<input type="number" v-model="store.sheetData.inv.bag2.durability" name="bag2-d" />
+          </label>
         </div>
       </dialog>
-      <div v-for="(input, index) in bags.bag2.inputs.value" :key="index" class="row-bag">
+      <div v-for="(item, index) in store.sheetData.inv.bag2.items" :key="index" class="row-bag">
         <label>
           <input
             type="text"
             :name="'obj' + index + 'Name2'"
-            v-model="bags.bag2.inputs.value[index]"
+            v-model="item.name"
             @input="(e) => newInput('bag2', index)"
           />
         </label>
-        <label>u<input type="number" :name="'obj' + index + 'u2'" /></label>
-        <label>%d<input type="number" :name="'obj' + index + 'd2'" /></label>
+        <label>u<input type="number" v-model="item.units" :name="'obj' + index + 'u2'" /></label>
+        <label
+          >%d
+          <input type="number" v-model="item.durability" :name="'obj' + index + 'd2'" />
+        </label>
         <div class="info">
+          <p>{{ nombre }}</p>
           <p>e</p>
-          <p class="label-x">{{ e }}</p>
+          <p class="label-x">{{ item.effect }}</p>
           <p>c</p>
-          <p class="label-s">{{ c }}</p>
+          <p class="label-s">{{ item.quality }}</p>
           <p>r</p>
-          <p class="label-s">{{ r }}</p>
+          <p class="label-s">{{ item.rarity }}</p>
           <p>t</p>
-          <p class="label-x">{{ t }}</p>
+          <p class="label-x">{{ item.type }}</p>
           <p>p</p>
-          <p class="label-s">{{ p }}</p>
+          <p class="label-s">{{ item.price }}</p>
           <p>a</p>
-          <p class="label-s">{{ a }}</p>
+          <p class="label-s">{{ item.armor }}</p>
           <p>m</p>
-          <p class="label-x">{{ m }}</p>
-          <p class="label-l">{{ dmg }}</p>
+          <p class="label-x">{{ item.material }}</p>
+          <p class="label-l">{{ item.damage }}</p>
         </div>
       </div>
     </section>
@@ -235,6 +240,9 @@ form section[class*='inv'] div:first-child {
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useSheetDataStore } from '../../stores/sheetDataStore'
+
+const store = useSheetDataStore()
 
 const showDialog = (dialogId) => {
   const dialog = document.querySelector(`#${dialogId}`)
@@ -263,44 +271,28 @@ const bag1Style = computed(() => ({
 }))
 const bag2Style = computed(() => ({
   height: bag2Open.value ? '20rem' : '2.8rem',
-  overflow: bag1Open.value ? 'scroll' : 'hidden',
+  overflow: bag2Open.value ? 'scroll' : 'hidden',
 }))
 
-//script para hacer el nombre y los datos de la bolsa reactivos
-const bags = {
-  bag1: {
-    name: ref('Main'),
-    type: ref('Bag'),
-    inputs: ref(['']),
-    maxCapacity: ref(5),
-  },
-  bag2: {
-    name: ref('new'),
-    type: ref('bag'),
-    inputs: ref(['']),
-    maxCapacity: ref(0),
-  },
-}
-//reactividad de las bolsas
-const updateBag = (bagId, property, event) => {
-  bags[bagId][property].value = event.target.value
-}
 //Agregar nuevos espacios en la bolsa
 const newInput = (bagId, index) => {
-  const bag = bags[bagId]
-  if (
-    // si es el último índice
-    index === bag.inputs.value.length - 1 &&
-    // si el input actual no está vacío
-    bag.inputs.value[index] !== '' &&
-    // si no se ha alcanzado la capacidad máxima
-    bag.inputs.value.length < bag.maxCapacity.value
-  ) {
-    bag.inputs.value.push('')
+  const items = store.sheetData.inv[bagId].items
+  const maxCapacity = store.sheetData.inv[bagId].maxCapacity
+
+  if (index === items.length - 1 && items[index].name !== '' && items.length < maxCapacity) {
+    items.push({
+      name: '',
+      units: 0,
+      durability: 0,
+      effect: '',
+      quality: 0,
+      rarity: 0,
+      type: '',
+      price: 0,
+      armor: 0,
+      material: '',
+      damage: '',
+    })
   }
-}
-const updateMaxCapacity = (bagId, event) => {
-  const value = event.target.value
-  bags[bagId].maxCapacity.value = value
 }
 </script>

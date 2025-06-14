@@ -145,14 +145,15 @@ input[type='number'] {
   border: 3px ridge rgb(192, 192, 192);
   border-radius: 1rem;
   display: flex;
-  opacity: 0;
   flex-wrap: wrap;
+  text-align: center;
   justify-content: space-between;
   box-shadow: inset 1px 1px 5px black;
   box-sizing: border-box;
   position: absolute;
   top: 3rem;
   z-index: -1;
+  opacity: 0;
   transition: 0.2s ease-in;
 }
 .info p {

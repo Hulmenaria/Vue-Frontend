@@ -792,7 +792,7 @@ const newWound = async (index) => {
     store.sheetData.atr.wounds[index].name !== ''
   ) {
     const newId = store.sheetData.atr.wounds.length + 1
-    store.sheetData.atr.wounds.push({ id: newId, name: '', stadium: 0, grade: 0 })
+    store.sheetData.atr.wounds.push({ id: newId, name: '', stadium: 0, grade: 0, type: '' })
   }
 }
 
@@ -815,44 +815,32 @@ const downGrade = (wound) => {
   }
 }
 
-const marks = ref([])
-
+//encuentra la imagen por nombre y agrega el type
 const foundImage = (name) => {
   const normalized = name.trim().toLowerCase()
+  const image = markMap.getMarkImage(normalized)
+  if (name) {
+    const match = Object.entries(markMap.markMap).find(([_, markData]) => {
+      const allKeywords = [...markData.keywords.en, ...markData.keywords.es]
+      return allKeywords.some((keyword) => normalized.includes(keyword))
+    })
 
-  const match = Object.entries(markMap.markMap).find(([_, markData]) => {
-    const allKeywords = [...markData.keywords.en, ...markData.keywords.es]
-    return allKeywords.some((keyword) => normalized.includes(keyword))
-  })
-
-  if (match) {
-    const [markId] = match
-    const markImage = marks.value.find((mark) => mark.id === markId)
-    if (markImage) {
-      return markImage.image || '/icon/mark/mark-exclam.png'
+    if (match) {
+      const [markId] = match
+      const wound = store.sheetData.atr.wounds.find(
+        (w) => w.name.trim().toLowerCase() === normalized,
+      )
+      if (wound && wound.type !== markId) {
+        wound.type = markId
+      }
     }
   }
-  return normalized ? '/icon/mark/mark-exclam.png' : ''
-}
 
-//fetch para las marks de wound
-const fetchImages = async () => {
-  try {
-    const response = await fetch('/collections/mark.json')
-    if (!response.ok) {
-      throw new Error('JSON not found')
-    }
-    const data = await response.json()
-    marks.value = data.marks
-    console.log('Marks loaded:', marks.value)
-  } catch (err) {
-    console.error('Error al cargar imágenes:', err)
-    marks.value = []
-  }
+  return image
 }
 
 onMounted(() => {
   watchAttributes()
-  fetchImages()
+  markMap.fetchImages()
 })
 </script>
