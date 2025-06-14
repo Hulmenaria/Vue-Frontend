@@ -43,7 +43,6 @@ section a {
 label {
   height: 3rem;
   display: flex;
-  justify-items: center;
   justify-content: space-between;
   align-items: center;
 }
@@ -192,7 +191,7 @@ dialog {
   text-align: center;
 }
 dialog div {
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -204,25 +203,24 @@ dialog label {
   height: 3rem;
   margin: 0.5rem 0;
 }
-dialog input {
-  width: 100%;
-  font-size: 1rem;
-  margin: 0.15rem;
-}
-dialog input[type='number'] {
-  width: 100%;
-  appearance: none;
-  -moz-appearance: textfield;
-}
 dialog .box-name {
   width: 100%;
 }
 dialog .box-text {
   width: 65%;
 }
+dialog .box-text input {
+  width: 90%;
+}
 dialog .box-number {
-  width: 15%;
+  width: 16%;
 }
 dialog .box-weight {
+  justify-content: space-evenly;
   width: 35%;
+}
+
+dialog .box-number input,
+dialog .box-weight input {
+  width: 70%;
 }

@@ -95,27 +95,32 @@ form section[class*='inv'] div:first-child {
       <dialog id="bag1">
         <p>{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
         <div>
-          <label class="box-name"
-            ><input
+          <label class="box-name">
+            <input
               type="text"
               name="bag-name"
               :value="bags.bag1.name.value"
               @input="(e) => updateBag('bag1', 'name', e)"
-          /></label>
+            />
+          </label>
           <label class="box-text"
-            >t<input
+            >t
+            <input
               type="text"
               name="bag-t"
               :value="bags.bag1.type.value"
               @input="(e) => updateBag('bag1', 'type', e)"
-          /></label>
+            />
+          </label>
           <label class="box-weight"
-            >Mx<input
+            >Mx
+            <input
               type="number"
               name="bag-mx"
               :value="bags.bag1.maxCapacity.value"
               @input="(e) => updateMaxCapacity('bag1', e)"
-          /></label>
+            />
+          </label>
           <label class="box-text">m<input type="text" name="bag-m" /></label>
           <label class="box-number">c<input type="number" name="bag-c" /></label>
           <label class="box-number">r<input type="number" name="bag-r" /></label>
@@ -207,7 +212,6 @@ form section[class*='inv'] div:first-child {
         <label>u<input type="number" :name="'obj' + index + 'u2'" /></label>
         <label>%d<input type="number" :name="'obj' + index + 'd2'" /></label>
         <div class="info">
-          <p>{{ nombre }}</p>
           <p>e</p>
           <p class="label-x">{{ e }}</p>
           <p>c</p>
