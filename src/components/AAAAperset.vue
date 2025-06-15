@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-  <section></section>
+  <form @submit.prevent></form>
 </template>
 
 <script setup></script>

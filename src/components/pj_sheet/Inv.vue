@@ -71,7 +71,7 @@ form section[class*='inv'] div:first-child {
 </style>
 
 <template>
-  <form>
+  <form @submit.prevent>
     <div class="pouch">
       <p>Pouch:</p>
       <label>Cb<input type="number" v-model="store.sheetData.inv.cb" name="cb" /></label>

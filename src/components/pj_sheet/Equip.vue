@@ -154,7 +154,7 @@ section .trinket img {
 }
 </style>
 <template>
-  <form class="equip" id="equip">
+  <form @submit.prevent class="equip" id="equip">
     <section class="box-pircing-left">
       <button type="button" class="trinket" @click="showDialog('pircing-left')">
         <img src="" alt="" />

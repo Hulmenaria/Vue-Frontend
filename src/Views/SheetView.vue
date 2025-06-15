@@ -145,7 +145,7 @@ select {
 </style>
 
 <template>
-  <form class="inv">
+  <form @submit.prevent class="inv">
     <div class="overlay" v-if="isStadistOpen || isAtrOpen" @click="handleClose"></div>
     <section>
       <div @click="openStad">
@@ -189,6 +189,7 @@ select {
     <transition name="atrSlide">
       <ATR v-if="isAtrOpen" />
     </transition>
+    <Hab />
     <div class="store">
       <button type="button" @click="saveSheet">Guardar</button>
       <button type="button" @click="loadSheet">Cargar</button>
@@ -202,6 +203,7 @@ import Equip from '../components/pj_sheet/Equip.vue'
 import Inv from '../components/pj_sheet/Inv.vue'
 import Stadist from '@/components/pj_sheet/Stadist.vue'
 import ATR from '../components/pj_sheet/ATR.vue'
+import Hab from '@/components/pj_sheet/Hab.vue'
 import { useSheetDataStore } from '@/stores/sheetDataStore'
 const store = useSheetDataStore()
 import { markMapStore } from '@/stores/markMapStore'

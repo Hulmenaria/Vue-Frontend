@@ -20,7 +20,7 @@ section {
 }
 </style>
 <template>
-  <form>
+  <form @submit.prevent>
     <section class="identity" id="identity">
       <label class="row-1">
         Name<input
