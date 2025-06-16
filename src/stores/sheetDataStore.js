@@ -468,6 +468,13 @@ export const useSheetDataStore = defineStore('sheetData', {
           ],
         },
       },
+      hab: {
+        raciPas: [{ id: 1, name: '', lvl: 0, next: 0 }],
+        raciAct: [{ id: 1, name: '', lvl: 0, next: 0 }],
+        clasPas: [{ id: 1, name: '', lvl: 0, next: 0 }],
+        clasAct: [{ id: 1, name: '', lvl: 0, next: 0 }],
+        competences: [{ id: 1, name: '', lvl: 0, next: 0 }],
+      },
       dtPoints: {
         con: 0,
         int: 0,
@@ -480,6 +487,10 @@ export const useSheetDataStore = defineStore('sheetData', {
 
   actions: {
     async loadSheet(name) {
+      if (!name) {
+        console.error('No name provided')
+        return
+      }
       try {
         const res = await axios.get(`${API_URL}/load?name=${encodeURIComponent(name)}`)
         this.sheetData = res.data
@@ -489,6 +500,10 @@ export const useSheetDataStore = defineStore('sheetData', {
     },
 
     async saveSheet(name) {
+      if (!name) {
+        console.error('No name provided')
+        return
+      }
       try {
         await axios.post(API_URL + '/save', {
           sheetData: this.sheetData,

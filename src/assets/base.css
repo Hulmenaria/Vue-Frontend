@@ -40,14 +40,14 @@ h3 {
   font-size: 1.7rem;
   text-align: center;
   font-family: 'MedievalSharp';
-  width: 20rem;
+  width: 100%;
 }
 h4 {
   /*Article*/
   font-size: 1.2rem;
   text-align: center;
   font-family: 'MedievalSharp';
-  width: 20rem;
+  width: 100%;
 }
 h5 {
   /*Nombres Propios*/
@@ -59,4 +59,11 @@ h5 {
 h6 {
   /**/
   background: unset;
+}
+legend {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: 'MedievalSharp';
+  width: 100%;
 }

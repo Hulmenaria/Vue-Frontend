@@ -4,10 +4,10 @@
 form {
   background-size: 205% 102%;
   background-position: left 0.8rem;
-  position: absolute;
-  top: 4rem;
   width: 100vw;
   height: 93%;
+  position: absolute;
+  top: 4rem;
   z-index: 15;
 }
 section {

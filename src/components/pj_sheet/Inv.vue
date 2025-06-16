@@ -73,7 +73,7 @@ form section[class*='inv'] div:first-child {
 <template>
   <form @submit.prevent>
     <div class="pouch">
-      <p>Pouch:</p>
+      <h4>Pouch:</h4>
       <label>Cb<input type="number" v-model="store.sheetData.inv.cb" name="cb" /></label>
       <label>Pt<input type="number" v-model="store.sheetData.inv.pt" name="pt" /></label>
       <label>Or<input type="number" v-model="store.sheetData.inv.or" name="or" /></label>

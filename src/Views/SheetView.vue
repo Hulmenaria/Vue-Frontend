@@ -82,24 +82,6 @@ select {
   position: absolute;
   top: 1.3rem;
 }
-.stadistSlide-enter-active,
-.stadistSlide-leave-active {
-  transition: 0.5s;
-}
-.stadistSlide-enter-from,
-.stadistSlide-leave-to {
-  transform: translateX(-25rem);
-}
-
-.atrSlide-enter-active,
-.atrSlide-leave-active {
-  transition: 0.5s;
-}
-.atrSlide-enter-from,
-.atrSlide-leave-to {
-  transform: translate(25rem);
-}
-
 .dots {
   width: 100vw;
   height: 0;
@@ -142,11 +124,38 @@ select {
 .store button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+.stadistSlide-enter-active,
+.stadistSlide-leave-active {
+  transition: 0.5s;
+}
+.stadistSlide-enter-from,
+.stadistSlide-leave-to {
+  transform: translateX(-25rem);
+}
+
+.atrSlide-enter-active,
+.atrSlide-leave-active {
+  transition: 0.5s;
+}
+.atrSlide-enter-from,
+.atrSlide-leave-to {
+  transform: translate(25rem);
+}
+
+.habSlide-enter-active,
+.habSlide-leave-active {
+  transition: 0.5s;
+}
+.habSlide-enter-from,
+.habSlide-leave-to {
+  transform: translate(25rem);
+}
 </style>
 
 <template>
   <form @submit.prevent class="inv">
-    <div class="overlay" v-if="isStadistOpen || isAtrOpen" @click="handleClose"></div>
+    <div class="overlay" v-if="isStadistOpen || isAtrOpen || isHabOpen" @click="handleClose"></div>
     <section>
       <div @click="openStad">
         <p class="name">{{ store.sheetData.std.name || 'Select a Name' }}</p>
@@ -169,7 +178,7 @@ select {
         <p>Destiny {{ store.sheetData.atr.dp }}</p>
       </div>
     </section>
-    <div class="energy">
+    <div class="energy" @click="openHab">
       <p class="res">Res: {{ store.sheetData.std.acRes }}</p>
       <select v-model="selectedEnergy">
         <option value="mistyc">Mistyc</option>
@@ -189,7 +198,9 @@ select {
     <transition name="atrSlide">
       <ATR v-if="isAtrOpen" />
     </transition>
-    <Hab />
+    <transition name="habSlide">
+      <Hab v-if="isHabOpen" />
+    </transition>
     <div class="store">
       <button type="button" @click="saveSheet">Guardar</button>
       <button type="button" @click="loadSheet">Cargar</button>
@@ -216,11 +227,12 @@ const uniqueWoundTypes = computed(() => {
 })
 
 const foundMark = (type) => {
-  return markMap.getMarkImage(type)
+  return markMap.getMarkImage(type) || '/icon/mark/mark-exclam.png'
 }
 
 const isStadistOpen = ref(false)
 const isAtrOpen = ref(false)
+const isHabOpen = ref(false)
 
 const openStad = () => {
   isStadistOpen.value = !isStadistOpen.value
@@ -229,10 +241,14 @@ const openStad = () => {
 const openAtr = () => {
   isAtrOpen.value = !isAtrOpen.value
 }
+const openHab = () => {
+  isHabOpen.value = !isHabOpen.value
+}
 
 const handleClose = () => {
   isStadistOpen.value = false
   isAtrOpen.value = false
+  isHabOpen.value = false
 }
 
 const saveSheet = async () => {
