@@ -83,7 +83,7 @@ select {
   top: 1.3rem;
 }
 .dots {
-  width: 100vw;
+  width: 50vw;
   height: 0;
   display: flex;
   justify-content: left;
@@ -98,6 +98,28 @@ select {
   width: auto;
   margin: 0 0.3rem;
 }
+.hability {
+  width: 100vw;
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: end;
+  position: relative;
+  top: 0.2rem;
+  right: 0.6rem;
+  z-index: 10;
+}
+.hability button {
+  background: transparent;
+  background-color: var(--bgCoffe);
+  border-radius: 1rem;
+  border: 2px inset var(--bgLatte);
+  width: 5rem;
+  padding: 0.2rem 0.1rem;
+  margin: 0.2rem 0;
+}
+
 .store {
   background-color: var(--marron);
   height: 5rem;
@@ -107,7 +129,6 @@ select {
   justify-content: space-around;
   box-sizing: border-box;
 }
-
 .store button {
   height: 3rem;
   background-color: rgba(0, 0, 0, 0.6);
@@ -178,7 +199,7 @@ select {
         <p>Destiny {{ store.sheetData.atr.dp }}</p>
       </div>
     </section>
-    <div class="energy" @click="openHab">
+    <div class="energy">
       <p class="res">Res: {{ store.sheetData.std.acRes }}</p>
       <select v-model="selectedEnergy">
         <option value="mistyc">Mistyc</option>
@@ -189,6 +210,10 @@ select {
     </div>
     <div class="dots" v-if="uniqueWoundTypes.size > 0">
       <img v-for="type in uniqueWoundTypes" :key="type" :src="foundMark(type)" />
+    </div>
+    <div class="hability">
+      <button @click="openHab">Ability</button>
+      <button>Profession</button>
     </div>
     <Equip />
     <Inv />

@@ -9,6 +9,7 @@ form {
   flex-direction: column;
   position: absolute;
   top: 5rem;
+  z-index: 15;
 }
 form > div {
   overflow-y: scroll;
@@ -140,18 +141,4 @@ const { handleNewSlot: handleCompetencesInput, updateField: updateCompetencesFie
     arrayRef: competencesArray,
   },
 )
-
-// import { useSheetDataStore } from '@/stores/sheetDataStore'
-// const store = useSheetDataStore()
-
-// const handleNewSlot = async (arrayName, index) => {
-//   const array = store.sheetData.hab[arrayName]
-
-//   if (array[index].name === '' && array.length > 1 && index !== array.length - 1) {
-//     array.splice(index, 1)
-//   } else if (index === array.length - 1 && array[index].name !== '') {
-//     const newId = array.length + 1
-//     array.push({ id: newId, name: '', lvl: 0, next: 0 })
-//   }
-// }
 </script>
